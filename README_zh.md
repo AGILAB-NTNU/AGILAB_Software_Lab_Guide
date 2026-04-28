@@ -1,8 +1,9 @@
 # AGILAB 軟體開發手冊
 
-歡迎來到 AGILAB 軟體開發與研究規範手冊。本倉庫匯集了實驗室所有專案通用的開發標準、環境配置與協作流程。
+[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/)
+繁體中文 | [English Version](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/en/)
 
-[English Version](README.md)
+歡迎來到 AGILAB 軟體開發與研究規範手冊。本倉庫匯集了實驗室所有專案通用的開發標準、環境配置與協作流程。
 
 ## 📖 核心規範
 
