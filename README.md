@@ -1,7 +1,6 @@
 # AGILAB Software Lab Guide
 
-[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/)
-[中文版本 (Chinese Version)](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/zh/) | English
+[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/) [![Traditional Chinese](https://img.shields.io/badge/%E8%AA%9E%E8%A8%80-%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-green.svg)](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/zh/)
 
 Welcome to the AGILAB Software Development and Research Guidelines. This repository centralizes the development standards, environment configurations, and collaboration workflows for all research projects within the lab.
 

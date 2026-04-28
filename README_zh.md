@@ -1,7 +1,6 @@
 # AGILAB 軟體開發手冊
 
-[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/)
-繁體中文 | [English Version](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/en/)
+[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/) [![Traditional Chinese](https://img.shields.io/badge/%E8%AA%9E%E8%A8%80-%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-green.svg)](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/zh/)
 
 歡迎來到 AGILAB 軟體開發與研究規範手冊。本倉庫匯集了實驗室所有專案通用的開發標準、環境配置與協作流程。
 
