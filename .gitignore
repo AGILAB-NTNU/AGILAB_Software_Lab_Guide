@@ -1,0 +1,6 @@
+# MkDocs
+site/
+*~
+*.tmp
+*.bak
+.DS_Store
