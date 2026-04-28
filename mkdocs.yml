@@ -32,7 +32,7 @@ theme:
 
 nav:
   - 'English Manual':
-    - 'Home': 'en/index.md'
+    - 'Home': 'index.md'
     - 'Getting Started': 'en/contributing.md'
     - 'Reproducibility': 'en/reproducibility.md'
     - 'Environment': 'en/conda_guide.md'

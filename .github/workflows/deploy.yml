@@ -24,7 +24,8 @@ jobs:
 
       - name: Sync README to docs
         run: |
-          cp README.md docs/en/index.md
+          mkdir -p docs/en docs/zh
+          cp README.md docs/index.md
           cp README_zh.md docs/zh/index.md
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force
