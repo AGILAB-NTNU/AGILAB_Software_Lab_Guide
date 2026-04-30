@@ -9,16 +9,16 @@ theme:
     # Day mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: teal
-      accent: cyan
+      primary: indigo
+      accent: blue
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     # Night mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: teal
-      accent: cyan
+      primary: indigo
+      accent: blue
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
