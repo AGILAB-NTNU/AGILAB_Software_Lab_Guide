@@ -1,22 +1,23 @@
-/* --- Responsive Logo Design --- */
+/* --- Professional Logo Visibility Optimization --- */
 
-/* Desktop: Enlarge the logo for better visibility */
+/* Desktop: Significantly enlarge the logo */
 .md-logo img {
-    height: 2.2rem;
+    height: 3.5rem !important; /* Force a much larger size */
     width: auto;
-    transition: height 0.3s; /* Smooth transition when resizing */
+    max-height: none !important; /* Remove Material default constraints */
+    margin: -0.5rem 0; /* Adjust vertical alignment if it's too high */
 }
 
-/* Mobile & Tablet: Reduce logo size to prevent header crowding */
-/* 76.25em is the default breakpoint for Material for MkDocs (1220px) */
+/* Ensure the header container doesn't clip the larger logo */
+.md-header__button.md-logo {
+    padding: 0;
+    margin-right: 1.5rem;
+}
+
+/* Mobile & Tablet: Maintain a sensible but visible size */
 @media screen and (max-width: 76.25em) {
     .md-logo img {
-        height: 1.6rem;
-        margin: 0.2rem 0;
+        height: 2.2rem !important;
+        margin: 0;
     }
-}
-
-/* Adjust header button padding for a cleaner look */
-.md-header__button.md-logo {
-    padding: 0.1rem;
 }
