@@ -9,6 +9,7 @@ Welcome to the AGILAB Software Development and Research Guidelines. This reposit
 *   **[Contribution SOP](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/en/contributing/)**: 
     *   How to start new projects from [SoftwareTemplate](https://github.com/AGILAB-NTNU/SoftwareTemplate).
     *   Branching strategy and development process.
+    *   **[Git Commit Convention](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/en/git_convention/)**: Simplified, standardized research record-keeping.
 *   **[Reproducibility Guide](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/en/reproducibility/)**:
 *   **[Conda & Environment Guide](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/en/conda_guide/)**:
 *   **[Project Lifecycle Guide](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/en/lifecycle/)**:

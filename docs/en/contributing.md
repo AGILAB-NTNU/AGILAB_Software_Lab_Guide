@@ -47,6 +47,11 @@ The steps to initialize a new project are as follows:
 - Ensure all GitHub Actions (CI) tests pass.
 - Clearly describe the motivation, methodology, and expected results of the experiment in the PR description.
 
+### 4. Git Commit Convention
+To ensure the traceability of research records, please follow the laboratory's [Git Commit Convention](git_convention.md).
+- **Format**: `Type: English Description`
+- **Example**: `feat: Add new perception layer`
+
 ## Coding Standards
 
 - **Style Guide**: Strictly follow the [Google Python Style Guide].

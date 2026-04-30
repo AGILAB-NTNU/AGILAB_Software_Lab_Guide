@@ -42,12 +42,14 @@ nav:
     - 'Reproducibility': 'en/reproducibility.md'
     - 'Environment': 'en/conda_guide.md'
     - 'Lifecycle': 'en/lifecycle.md'
+    - 'Commit Convention': 'en/git_convention.md'
   - '繁體中文手冊':
     - '首頁': 'zh/index.md'
     - '快速啟動': 'zh/contributing.md'
     - '研究可重現性': 'zh/reproducibility.md'
     - '環境管理': 'zh/conda_guide.md'
     - '專案生命週期': 'zh/lifecycle.md'
+    - 'Commit 規範': 'zh/git_convention.md'
 
 markdown_extensions:
   - admonition

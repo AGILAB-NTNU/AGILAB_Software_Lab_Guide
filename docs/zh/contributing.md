@@ -47,6 +47,11 @@ python -c "import 您的專案名稱; print('安裝成功！')"
 - 確保 GitHub Actions (CI) 測試全數通過。
 - 在 PR 描述中清晰說明該次實驗的動機、方法與預期結果。
 
+### 4. Git Commit 規範
+為了確保研究紀錄的可追蹤性，請遵守實驗室的 [Git Commit 訊息規範](git_convention.md)。
+- **格式**：`Type: English Description`
+- **範例**：`feat: Add new perception layer`
+
 ## 程式碼規範 (Coding Standards)
 
 - **風格**: 嚴格遵守 Google Python Style Guide。

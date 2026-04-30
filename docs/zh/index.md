@@ -9,6 +9,7 @@
 *   **[快速啟動與貢獻指南 (SOP)](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/zh/contributing/)**: 
     *   如何使用 [SoftwareTemplate](https://github.com/AGILAB-NTNU/SoftwareTemplate) 建立新專案。
     *   分支策略 (Main/Dev/Feature) 與開發流程。
+    *   **[Git Commit 訊息規範](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/zh/git_convention/)**: 簡明、標準化的研究紀錄方式。
 *   **[研究可重現性指南](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/zh/reproducibility/)**:
     *   隨機種子鎖定 (Seed Everything) 的標準實作。
     *   決定性演算法 (Determinism) 與環境一致性規範。
