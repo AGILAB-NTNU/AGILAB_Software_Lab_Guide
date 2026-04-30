@@ -27,6 +27,7 @@ We recommend prioritizing the following 4 common types, but you can expand them 
 
 ### Other Optional Types
 If the above four are not sufficient, you may use more types based on the nature of the change, for example:
+
 *   **exp**: Specifically for fine-tuning experiment hyperparameters.
 *   **perf**: Performance optimization (e.g., reducing memory usage or speeding up computation).
 *   **chore**: Routine tasks (e.g., updating package versions, CI/CD configuration).
@@ -51,5 +52,5 @@ If the above four are not sufficient, you may use more types based on the nature
 
 ---
 
-> [!TIP]
-> Good commit logs are the foundation of reproducible research. When you need to trace back an experimental result, a clear log will save you significant time.
+!!! tip
+    Good commit logs are the foundation of reproducible research. When you need to trace back an experimental result, a clear log will save you significant time.
