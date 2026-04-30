@@ -1,23 +1,35 @@
-# AGILAB Software Lab Guide
+# AGILAB Software Lab Guide (Internal)
 
-[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/) [![Traditional Chinese](https://img.shields.io/badge/%E8%AA%9E%E8%A8%80-%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87-green.svg)](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/zh/)
+This repository contains the source code for the [AGILAB Software Lab Guide](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/).
 
-Welcome to the AGILAB Software Development and Research Guidelines. This repository centralizes the development standards, environment configurations, and collaboration workflows for all research projects within the lab.
+## Maintenance
 
-## 📖 Core Guidelines
+The documentation content is located in the `docs/` directory.
 
-*   **[Contribution SOP](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/en/contributing/)**: 
-    *   How to start new projects from [SoftwareTemplate](https://github.com/AGILAB-NTNU/SoftwareTemplate).
-    *   Branching strategy and development process.
-*   **[Reproducibility Guide](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/en/reproducibility/)**:
-*   **[Conda & Environment Guide](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/en/conda_guide/)**:
-*   **[Project Lifecycle Guide](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/en/lifecycle/)**:
+### Local Development
 
-## 🛠️ Infrastructure
+To preview the documentation locally, ensure you have Python installed and then:
 
-*   **[SoftwareTemplate](https://github.com/AGILAB-NTNU/SoftwareTemplate)**: 
-    The starting point for all research projects, featuring standard directory structures, Ruff linting, and automated documentation.
+1. Install dependencies:
+   ```bash
+   pip install mkdocs-material
+   ```
 
-## 🤝 Contact & Feedback
+2. Start the development server:
+   ```bash
+   mkdocs serve
+   ```
 
-If you have suggestions, please contact AGI(Boss) or open an issue.
+3. Open `http://127.0.0.1:8000` in your browser.
+
+### Deployment
+
+Changes pushed to the `main` branch are automatically deployed to GitHub Pages via GitHub Actions.
+
+## 📁 Structure
+
+- `docs/`: Documentation source files (Markdown).
+  - `en/`: English version.
+  - `zh/`: Traditional Chinese version.
+- `mkdocs.yml`: MkDocs configuration file.
+- `.github/workflows/deploy.yml`: CI/CD deployment script.
