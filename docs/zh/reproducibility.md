@@ -15,19 +15,24 @@ import os
 import numpy as np
 import torch
 
-def seed_everything(seed: int = 42):
-    """固定所有可能的隨機來源以確保實驗可重現性。"""
+def seed_everything(seed: int = 42) -> None:
+    """Lock all random sources to ensure experiment reproducibility.
+
+    Args:
+        seed: Integer seed value applied globally across all frameworks.
+            Defaults to 42.
+    """
     random.seed(seed)
     os.environ['PYTHONHASHSEED'] = str(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)  # 如果使用多個 GPU
-    
-    # 確保 PyTorch 運算使用決定性演算法 (可能會稍微降低性能)
+    torch.cuda.manual_seed_all(seed)  # For multi-GPU setups
+
+    # Force deterministic algorithms; raises error if unavailable
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
-    
+
     print(f"Random seed set to: {seed}")
 ```
 

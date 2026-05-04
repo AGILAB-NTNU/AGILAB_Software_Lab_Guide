@@ -15,19 +15,19 @@
    4.  **修改專案資訊**：打開 `pyproject.toml`，修改 `name = "project_name"` 為您的專案名稱。
 
 2. **環境建置**
-我們統一使用 Conda 來管理複雜的物理模擬與 CUDA 依賴：
-```bash
-# 根據 environment.yml 建立環境
-conda env create -f environment.yml
-conda activate agilab_env
-```
+   我們統一使用 Conda 來管理複雜的物理模擬與 CUDA 依賴：
+   ```bash
+   # 根據 environment.yml 建立環境
+   conda env create -f environment.yml
+   conda activate agilab_env
+   ```
 
-### 3. 驗證安裝 (重要)
-確保您的套件已被正確安裝為開發模式 (Editable mode)：
-```bash
-# 在終端機測試是否能 import
-python -c "import 您的專案名稱; print('安裝成功！')"
-```
+3. **驗證安裝（重要）**
+   確保您的套件已被正確安裝為開發模式 (Editable mode)：
+   ```bash
+   # 在終端機測試是否能 import
+   python -c "import 您的專案名稱; print('安裝成功！')"
+   ```
 
 ## 實驗室工作流 (Lab Workflow)
 
