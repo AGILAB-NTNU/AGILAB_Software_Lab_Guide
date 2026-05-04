@@ -1,0 +1,4 @@
+# Documentation build dependencies
+# Pin versions to ensure reproducible CI deployments.
+# Update manually when intentionally upgrading.
+mkdocs-material==9.7.0
