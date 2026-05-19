@@ -51,18 +51,11 @@ def seed_everything(seed: int = 42) -> None:
 *   **Python 打包**：專案的核心依賴必須記錄在 `pyproject.toml` 的 `dependencies` 區塊。
 *   **硬體紀錄**：在論文或實驗日誌中，請標註使用的 GPU 型號與 CUDA 版本。
 
-## 4. 實驗追蹤 (Experiment Tracking)
-
-我們強烈建議使用 **Weights & Biases (W&B)** 或 **MLflow** 來紀錄每一次 Run 的所有細節：
-*   所有超參數 (Hyperparameters)。
-*   訓練期間的指標 (Metrics)。
-*   使用的程式碼版本 (Git Hash)。
-*   模型權重 (Artifacts)。
-
-> [!IMPORTANT]
-> **沒有 Git Hash 的實驗結果是不具備科學公信力的。** 請務必在 Commit 程式碼後再啟動正式實驗。
-
-## 5. 資料集版本化 (Dataset Versioning)
+## 4. 資料集版本化 (Dataset Versioning)
 
 *   **固定分割 (Fixed Split)**：嚴禁在程式碼中動態進行 `train_test_split`。應預先產生 `train.txt` 與 `test.txt` 檔案來指定索引。
 *   **檢查碼**：對於關鍵資料集，請保留其 MD5 或 SHA-256 檢查碼。
+
+---
+
+**下一步 →** [專案生命週期](lifecycle.md)
