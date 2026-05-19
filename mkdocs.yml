@@ -45,11 +45,15 @@ nav:
     - 'Commit Convention': 'en/git_convention.md'
   - '繁體中文手冊':
     - '首頁': 'zh/index.md'
-    - '快速啟動': 'zh/contributing.md'
-    - '研究可重現性': 'zh/reproducibility.md'
     - '環境管理': 'zh/conda_guide.md'
-    - '專案生命週期': 'zh/lifecycle.md'
+    - '快速啟動': 'zh/contributing.md'
     - 'Commit 規範': 'zh/git_convention.md'
+    - '研究可重現性': 'zh/reproducibility.md'
+    - '專案生命週期': 'zh/lifecycle.md'
+    - '附錄':
+      - 'Type Hinting 入門': 'zh/type_hinting.md'
+      - '開發模式安裝': 'zh/editable_install.md'
+      - 'Google Style Docstrings': 'zh/docstrings.md'
 
 markdown_extensions:
   - admonition
