@@ -5,8 +5,7 @@
 ## 1. 啟動階段 (Initiation)
 
 1.  **建立 Repo**：基於 [SoftwareTemplate](https://github.com/AGILAB-NTNU/SoftwareTemplate) 建立新倉庫。
-2.  **設定 W&B**：在 Weights & Biases 建立對應的 Project。
-3.  **定義數據存放**：確定大型資料集是存放在伺服器 `/data` 路徑還是外部儲存裝置。
+2.  **定義數據存放**：確定大型資料集是存放在伺服器 `/data` 路徑還是外部儲存裝置。
 
 ## 2. 開發階段 (Development)
 
@@ -35,3 +34,10 @@
 
 > [!CAUTION]
 > 嚴禁將未經清理（包含硬編碼路徑、個人帳密）的程式碼直接公開。
+
+---
+
+!!! success "你已完成所有章節！"
+    恭喜讀完 AGILAB 軟體開發手冊的全部內容。遇到不懂的術語隨時可以查閱[附錄頁面](index.md#附錄術語說明)。
+
+**← 回到首頁** [AGILAB 軟體開發手冊](index.md)
