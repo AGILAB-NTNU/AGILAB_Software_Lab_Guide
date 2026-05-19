@@ -129,4 +129,4 @@ git stash pop                 # 取回暫存的修改
 
 ---
 
-**下一步 →** [撰寫與執行測試](testing.md)
+**下一步 →** [Git Commit 規範](../getting_started/git_convention.md)

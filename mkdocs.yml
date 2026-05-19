@@ -49,9 +49,9 @@ nav:
       - '環境管理': 'zh/getting_started/conda_guide.md'
       - '快速啟動': 'zh/getting_started/contributing.md'
       - '模板結構說明': 'zh/getting_started/template_structure.md'
-      - 'Commit 規範': 'zh/getting_started/git_convention.md'
     - '開發指南':
       - '日常 Git 操作': 'zh/development/daily_git.md'
+      - 'Commit 規範': 'zh/getting_started/git_convention.md'
       - '撰寫與執行測試': 'zh/development/testing.md'
       - 'Logging 與除錯': 'zh/development/logging_debugging.md'
       - '實驗管理': 'zh/development/experiment_management.md'

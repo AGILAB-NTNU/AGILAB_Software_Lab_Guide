@@ -161,4 +161,4 @@ conda env update -f environment.yml --prune
 
 ---
 
-**下一步 →** [Git Commit 規範](git_convention.md)
+**下一步 →** [日常 Git 操作](../development/daily_git.md)
