@@ -1,3 +1,46 @@
+/* ===== Sidebar Navigation Hierarchy ===== */
+
+/* Separator line above each section group (except the first) */
+.md-nav--primary .md-nav__item--section:not(:first-child) {
+    border-top: 1px solid var(--md-default-fg-color--lightest);
+    margin-top: 0.5rem;
+    padding-top: 0.25rem;
+}
+
+/* Section group label: uppercase, smaller, muted — reads as a category tag */
+.md-nav--primary .md-nav__item--section > .md-nav__link,
+.md-nav--primary .md-nav__item--section > label.md-nav__link {
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.55;
+    padding-bottom: 0.15rem;
+    pointer-events: none;
+}
+
+/* Page links inside a section: left accent bar */
+.md-nav--primary .md-nav__item--section .md-nav .md-nav__link {
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem !important;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+/* Hover state */
+.md-nav--primary .md-nav__item--section .md-nav .md-nav__link:hover {
+    border-left-color: var(--md-accent-fg-color);
+    opacity: 0.85;
+}
+
+/* Active (current page) — solid accent bar + accent color */
+.md-nav--primary .md-nav__item--section .md-nav .md-nav__link--active {
+    border-left-color: var(--md-accent-fg-color);
+    color: var(--md-accent-fg-color) !important;
+    font-weight: 600;
+}
+
+/* ===== End Sidebar Hierarchy ===== */
+
 /* --- Professional Logo Visibility Optimization --- */
 
 /* Desktop: Significantly enlarge the logo */
