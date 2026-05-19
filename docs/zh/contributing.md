@@ -6,13 +6,14 @@
 
 當您要開始一個新的研究專案時，請先參考 [AGILAB Software Template](https://github.com/AGILAB-NTNU/SoftwareTemplate)。
 
-建立新專案的步驟如下：
+新專案的 Repository 由**指導老師**統一從 [SoftwareTemplate](https://github.com/AGILAB-NTNU/SoftwareTemplate) 建立後，再邀請學生成為協作者。
 
-1. **複製並初始化**
-   1.  在 GitHub 上點擊 `Use this template` 建立新的 Repository。
-   2.  將專案 Clone 到本地環境。
-   3.  **重命名核心資料夾**：將 `src/project_name/` 改為您的專案名稱（例如 `src/my_robot_rl/`）。
-   4.  **修改專案資訊**：打開 `pyproject.toml`，修改 `name = "project_name"` 為您的專案名稱。
+加入專案後的步驟如下：
+
+1. **取得並初始化**
+   1.  將老師建立好的 Repository Clone 到本地環境。
+   2.  **重命名核心資料夾**：將 `src/project_name/` 改為實際專案名稱（例如 `src/my_robot_rl/`）。
+   3.  **修改專案資訊**：打開 `pyproject.toml`，修改 `name = "project_name"` 為實際專案名稱。
 
 2. **環境建置**
    我們統一使用 Conda 來管理複雜的物理模擬與 CUDA 依賴：
