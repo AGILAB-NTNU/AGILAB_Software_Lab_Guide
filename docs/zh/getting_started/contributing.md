@@ -71,4 +71,4 @@
 
 ---
 
-**下一步 →** [專案模板結構說明](template_structure.md)
+**下一步 →** [環境管理](conda_guide.md)

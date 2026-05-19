@@ -93,4 +93,4 @@ pytest tests/
 !!! info "想學更多？"
     → [進階測試技巧](../appendix/testing_advanced.md)：更多 pytest 指令、fixture、pytest.raises、完整 ReplayBuffer 測試範例
 
-**下一步 →** [Logging 與除錯](logging_debugging.md)
+**下一步 →** [實驗管理](experiment_management.md)

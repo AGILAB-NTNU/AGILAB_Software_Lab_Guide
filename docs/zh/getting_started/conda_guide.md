@@ -54,4 +54,4 @@ dependencies:
 
 ---
 
-**下一步 →** [快速啟動與貢獻指南](contributing.md)
+**下一步 →** [模板結構說明](template_structure.md)

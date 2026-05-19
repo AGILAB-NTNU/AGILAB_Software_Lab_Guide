@@ -57,4 +57,4 @@ Type: English Description
 
 ---
 
-**下一步 →** [撰寫與執行測試](../development/testing.md)
+**下一步 →** [Logging 與除錯](../development/logging_debugging.md)
