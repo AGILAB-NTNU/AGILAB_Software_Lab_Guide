@@ -61,11 +61,14 @@ nav:
     - '附錄':
       - 'Google Python Style Guide': 'zh/appendix/google_style_guide.md'
       - 'Type Hinting 入門': 'zh/appendix/type_hinting.md'
+      - 'Conda 與 environment.yml': 'zh/appendix/conda_env_guide.md'
       - '開發模式安裝': 'zh/appendix/editable_install.md'
+      - 'pyproject.toml 說明': 'zh/appendix/pyproject_guide.md'
       - 'Google Style Docstrings': 'zh/appendix/docstrings.md'
       - '進階測試技巧': 'zh/appendix/testing_advanced.md'
       - '進階 Logging 與除錯': 'zh/appendix/logging_advanced.md'
       - 'tmux 無 sudo 安裝': 'zh/appendix/tmux_guide.md'
+      - 'Docker 容器化部署': 'zh/appendix/docker_guide.md'
 
 markdown_extensions:
   - admonition
