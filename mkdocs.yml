@@ -50,6 +50,7 @@ nav:
       - '環境管理': 'zh/getting_started/conda_guide.md'
       - '模板結構說明': 'zh/getting_started/template_structure.md'
     - '開發指南':
+      - '程式碼規範': 'zh/development/coding_standards.md'
       - '日常 Git 操作': 'zh/development/daily_git.md'
       - 'Commit 規範': 'zh/getting_started/git_convention.md'
       - 'Logging 與除錯': 'zh/development/logging_debugging.md'

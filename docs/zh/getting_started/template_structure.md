@@ -186,4 +186,4 @@ version = "0.1.0"                       # 維持不動
 
 ---
 
-**下一步 →** [日常 Git 操作](../development/daily_git.md)
+**下一步 →** [程式碼規範](../development/coding_standards.md)
