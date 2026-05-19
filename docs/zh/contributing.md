@@ -62,7 +62,7 @@
 - **風格**: 嚴格遵守 Google Python Style Guide。→ [重點整理](google_style_guide.md)
 - **型別提示**: 所有函式簽名必須包含 **Type Hinting**。→ [什麼是 Type Hinting？](type_hinting.md)
 - **註解**: 所有公開模組、類別與函式皆須使用 Google Style Docstrings。→ [範例與格式說明](docstrings.md)
-- **可重現性**: 務必使用隨機種子鎖定工具，確保隨機性過程可追蹤。
+- **可重現性**: 務必使用隨機種子鎖定工具，確保隨機性過程可追蹤。→ [研究可重現性指南](reproducibility.md)
 
 ## 文件維護
 
