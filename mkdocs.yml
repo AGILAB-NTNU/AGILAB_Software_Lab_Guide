@@ -63,6 +63,7 @@ nav:
       - 'Google Style Docstrings': 'zh/docstrings.md'
       - '進階測試技巧': 'zh/testing_advanced.md'
       - '進階 Logging 與除錯': 'zh/logging_advanced.md'
+      - 'tmux 無 sudo 安裝': 'zh/tmux_guide.md'
 
 markdown_extensions:
   - admonition

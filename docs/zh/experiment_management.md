@@ -124,10 +124,10 @@ def log_experiment_info(config: dict) -> None:
 
 ## 4. 整理實驗結果
 
-建議在專案的 `README.md` 中維護一個實驗結果表：
+建議在專案的 `docs/experiment_log.md` 中維護一個實驗結果表，不要直接寫在 `README.md`，保持 README 簡潔：
 
 ```markdown
-## 實驗記錄
+# 實驗記錄
 
 | 日期 | Commit | 設定檔 | 最高 Reward | 備註 |
 |---|---|---|---|---|
@@ -136,24 +136,37 @@ def log_experiment_info(config: dict) -> None:
 | 2024-05-05 | `i7j8k9l` | ppo_attention.yaml | 341 | attention ✅ |
 ```
 
+在 `README.md` 中只需加一行連結即可：
+
+```markdown
+實驗記錄請見 [docs/experiment_log.md](docs/experiment_log.md)。
+```
+
 ---
 
 ## 5. 伺服器執行時的注意事項
 
-在伺服器上執行長時間訓練時：
+在伺服器上執行長時間訓練時，建議使用 **tmux** 管理 session，讓訓練在登出後繼續執行。
 
 ```bash
-# 用 nohup 讓程式在登出後繼續跑，並將輸出存到 log 檔
-nohup python -m your_project.training.train \
-    --config configs/ppo_humanoid.yaml \
-    > logs/train_20240501.log 2>&1 &
+# 建立一個新的 session（取個好記的名字）
+tmux new -s train
 
-# 查看程式是否還在跑
-ps aux | grep train.py
+# 在 session 中啟動訓練
+python -m your_project.training.train --config configs/ppo_humanoid.yaml
 
-# 即時查看 log
-tail -f logs/train_20240501.log
+# 需要離開時：按下 Ctrl+B，放開，再按 D
+# 程式會繼續在背景跑
+
+# 之後重新連回 session
+tmux attach -t train
+
+# 列出目前所有 session
+tmux ls
 ```
+
+!!! tip "還沒安裝 tmux？"
+    伺服器通常沒有 sudo 權限，請參考 → [tmux 無 sudo 安裝教學](tmux_guide.md)
 
 ---
 
