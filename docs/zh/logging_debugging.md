@@ -2,88 +2,57 @@
 
 ---
 
-## 為什麼不用 `print`？
+## 用 logging 取代 print
 
-`print` 是最直覺的除錯方式，但在研究程式碼中有幾個問題：
+`print` 很直覺，但有個問題：當程式碼越來越大，你會不知道哪些 `print` 是重要訊息、哪些是臨時除錯用的，最後要整理時得一個個手動刪。
 
-- 很難控制「哪些訊息要顯示、哪些不要」
-- 發布程式碼前要逐一手動刪除
-- 無法記錄到檔案
-- 看不出訊息的嚴重程度
-
-Python 的 `logging` 模組解決了以上所有問題。
-
----
-
-## 基本設定
-
-在 `src/your_project/utils/` 中建立一個統一的 logger 設定：
+Python 內建的 `logging` 模組可以解決這個問題，而且用法幾乎一樣簡單：
 
 ```python
-# src/your_project/utils/logger.py
 import logging
-import sys
 
+logging.basicConfig(level=logging.INFO, format="%(levelname)s | %(message)s")
+logger = logging.getLogger(__name__)
 
-def get_logger(name: str) -> logging.Logger:
-    """Get a configured logger for the given module name."""
-    logger = logging.getLogger(name)
-
-    if not logger.handlers:
-        handler = logging.StreamHandler(sys.stdout)
-        formatter = logging.Formatter(
-            fmt="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
-            datefmt="%Y-%m-%d %H:%M:%S",
-        )
-        handler.setFormatter(formatter)
-        logger.addHandler(handler)
-        logger.setLevel(logging.INFO)
-
-    return logger
+# 使用方式就像 print
+logger.info("Training started")
+logger.info("Epoch %d | loss=%.4f", epoch, loss)
 ```
 
-在各模組中使用：
+輸出：
+
+```
+INFO | Training started
+INFO | Epoch 1 | loss=0.3241
+```
+
+把這兩行放在每個檔案的最上方，就可以開始用了：
 
 ```python
-# src/your_project/training/train.py
-from your_project.utils.logger import get_logger
-
-logger = get_logger(__name__)
-
-
-def train(config):
-    logger.info("Training started with seed %d", config.seed)
-    for epoch in range(config.num_epochs):
-        loss = run_epoch()
-        logger.info("Epoch %d/%d | loss=%.4f", epoch + 1, config.num_epochs, loss)
-    logger.info("Training complete.")
+import logging
+logger = logging.getLogger(__name__)
 ```
 
 ---
 
 ## Log 等級
 
-由低到高：
+logging 有四個常用等級，讓你區分訊息的重要程度：
 
-| 等級 | 用途 | 範例 |
-|---|---|---|
-| `DEBUG` | 詳細的除錯資訊，開發時才開啟 | 每個 step 的 reward |
-| `INFO` | 正常的程式進度 | epoch 結果、模型載入成功 |
-| `WARNING` | 非預期但不致命的狀況 | checkpoint 不存在，從頭訓練 |
-| `ERROR` | 嚴重錯誤，程式可能無法繼續 | 設定檔格式錯誤 |
+| 用法 | 適合記錄什麼 |
+|---|---|
+| `logger.debug(...)` | 細節資訊（預設不顯示，除錯時才開啟） |
+| `logger.info(...)` | 正常流程，例如 epoch 進度、模型載入成功 |
+| `logger.warning(...)` | 非預期但不致命的狀況，例如找不到 checkpoint |
+| `logger.error(...)` | 嚴重錯誤 |
 
-```python
-logger.debug("Step %d: reward=%.3f", step, reward)   # 細節
-logger.info("Loaded checkpoint from %s", path)        # 正常流程
-logger.warning("No checkpoint found, starting fresh") # 非預期
-logger.error("Config file %s not found", config_path) # 錯誤
-```
+一般訓練時用 `info` 記錄進度就夠了。
 
 ---
 
-## 讀懂 Traceback（錯誤訊息）
+## 讀懂錯誤訊息（Traceback）
 
-遇到錯誤時，Python 會印出 **Traceback**，從下往上讀：
+程式報錯時，Python 會印出一段 **Traceback**。很多人看到這大段文字會緊張，但其實只需要看**最下面一行**：
 
 ```
 Traceback (most recent call last):
@@ -91,86 +60,46 @@ Traceback (most recent call last):
     train(config)
   File "src/your_project/training/train.py", line 45, in train
     loss = criterion(output, target)
-  File "src/your_project/training/loss.py", line 23, in compute_loss
-    return F.mse_loss(pred, target.float())
 RuntimeError: Expected all tensors to be on the same device,
               but found at least two devices, cuda:0 and cpu!
 ```
 
-**讀法：**
+**讀法：從最下面往上看**
 
-1. **最底行** = 真正的錯誤（`RuntimeError: ...`）
-2. **往上找** = 哪一行程式碼觸發了這個錯誤
-3. **最上面** = 程式從哪個入口點進來的
+1. **最底行** → 真正的錯誤是什麼（`RuntimeError: ...`）
+2. **往上一層** → 哪一行程式碼造成的（`loss = criterion(output, target)`）
 
-**這個例子的解法：** `pred` 在 GPU，`target` 在 CPU。找到 `target` 的來源，加上 `.to(device)`。
+這個例子的意思是：`output` 在 GPU，`target` 在 CPU，兩者裝置不同所以出錯。
 
 ---
 
 ## 常見錯誤速查
 
-### `RuntimeError: Expected all tensors to be on the same device`
-
-```python
-# ❌
-loss = F.mse_loss(pred, target)  # pred 在 GPU，target 在 CPU
-
-# ✅
-loss = F.mse_loss(pred, target.to(pred.device))
-```
-
-### `RuntimeError: mat1 and mat2 shapes cannot be multiplied`
-
-Tensor 形狀不符，通常是輸入維度搞錯：
-
-```python
-# 立刻印出形狀來確認
-print(f"x shape: {x.shape}, weight shape: {weight.shape}")
-```
-
-### `CUDA out of memory`
-
-GPU 記憶體不夠：
-
-```python
-# 縮小 batch size，或在不需要 gradient 的地方加 torch.no_grad()
-with torch.no_grad():
-    output = model(obs)
-```
-
 ### `ModuleNotFoundError: No module named 'your_project'`
 
-套件沒有以開發模式安裝，或 conda 環境沒啟動：
+套件沒有安裝，或 conda 環境沒啟動：
 
 ```bash
 conda activate agilab_env
 pip install -e .
 ```
 
----
+### `RuntimeError: Expected all tensors to be on the same device`
 
-## 使用 `breakpoint()` 中斷除錯
-
-在程式碼中插入 `breakpoint()`，執行到該行時會進入互動模式：
+Tensor 在不同裝置（CPU / GPU），把它們統一：
 
 ```python
-def compute_loss(pred, target):
-    breakpoint()  # 在這裡暫停，讓你檢查變數
-    return F.mse_loss(pred, target)
+loss = F.mse_loss(pred, target.to(pred.device))
 ```
 
-進入互動模式後：
+### `CUDA out of memory`
 
-```
-(Pdb) pred.shape          # 查看 tensor 形狀
-(Pdb) target.device       # 查看裝置
-(Pdb) n                   # 執行下一行
-(Pdb) c                   # 繼續執行到下一個 breakpoint
-(Pdb) q                   # 退出
-```
+GPU 記憶體不夠，先縮小 batch size，或在推論時加 `torch.no_grad()`：
 
-!!! warning
-    記得在 commit 前移除所有 `breakpoint()`。
+```python
+with torch.no_grad():
+    output = model(obs)
+```
 
 ---
 
