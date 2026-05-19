@@ -68,18 +68,23 @@ src/your_project/
 
 存放所有超參數與實驗設定，格式為 YAML。好處是讓「跑什麼實驗」與「程式碼邏輯」分離，不需要動程式碼就能切換設定。
 
-推薦搭配 **Hydra** 或 **OmegaConf** 讀取：
-
 ```yaml
 # configs/train_ppo.yaml
 seed: 42
-env:
-  name: "HumanoidStand-v1"
-  max_episode_steps: 1000
-agent:
-  lr: 3e-4
-  gamma: 0.99
-  clip_ratio: 0.2
+lr: 3e-4
+gamma: 0.99
+max_steps: 1000000
+```
+
+用 Python 標準函式庫即可讀取：
+
+```python
+import yaml
+
+with open("configs/train_ppo.yaml") as f:
+    cfg = yaml.safe_load(f)
+
+print(cfg["lr"])  # 0.003
 ```
 
 ---
