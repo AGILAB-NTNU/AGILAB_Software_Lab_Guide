@@ -7,18 +7,18 @@
 ## 分支架構
 
 ```
-main        ← 專案完成後才合併（由老師決定）
-  └── dev   ← 整合分支，由主要負責人合併各人分支
-        ├── james    ← 每位學生有自己的個人分支
-        ├── alice
-        └── bob
+main            ← 專案完成後才合併（由老師決定）
+  └── dev       ← 整合分支，由主要負責人合併各人分支
+        ├── dev-james    ← 每位學生有自己的個人分支
+        ├── dev-alice
+        └── dev-bob
 ```
 
 | 分支 | 誰管理 | 什麼時候合併 |
 |---|---|---|
 | `main` | 老師 | 計劃或專案正式結束後 |
 | `dev` | 主要負責的學生 | 定期將各人分支合入 |
-| 個人分支 | 自己 | 每天開發、自由 commit |
+| `dev-[名字]` | 自己 | 每天開發、自由 commit |
 
 !!! info "你只需要管好自己的分支"
     一般學生只需要在自己的個人分支上工作並 push。`dev` 的合併由主要負責人處理，不需要自己操作。
@@ -38,11 +38,11 @@ main        ← 專案完成後才合併（由老師決定）
 加入專案後，**只需要做一次**：
 
 ```bash
-# 從 dev 建立自己的分支（用你的名字或英文縮寫）
+# 從 dev 建立自己的分支（格式：dev-你的英文名）
 git checkout dev
 git pull origin dev
-git checkout -b james
-git push -u origin james
+git checkout -b dev-james
+git push -u origin dev-james
 ```
 
 之後每天的工作都在這個分支上進行。
@@ -70,7 +70,7 @@ git status
 輸出範例：
 
 ```
-On branch james
+On branch dev-james
 Changes not staged for commit:
   modified:   src/your_project/models/policy.py
 
