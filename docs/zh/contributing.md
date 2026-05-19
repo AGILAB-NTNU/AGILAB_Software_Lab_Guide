@@ -31,6 +31,9 @@
    ```
    > 不清楚 Editable mode 是什麼？→ [開發模式安裝說明](editable_install.md)
 
+!!! tip "想知道每個資料夾是做什麼的？"
+    請參考 [專案模板結構說明](template_structure.md)，裡面有每個目錄與設定檔的詳細解說。
+
 ## 實驗室工作流 (Lab Workflow)
 
 ### 1. 分支策略 (Branching)
@@ -68,4 +71,4 @@
 
 ---
 
-**下一步 →** [Git Commit 規範](git_convention.md)
+**下一步 →** [專案模板結構說明](template_structure.md)

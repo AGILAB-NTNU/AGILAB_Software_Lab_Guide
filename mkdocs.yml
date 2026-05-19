@@ -47,6 +47,7 @@ nav:
     - '首頁': 'zh/index.md'
     - '環境管理': 'zh/conda_guide.md'
     - '快速啟動': 'zh/contributing.md'
+    - '模板結構說明': 'zh/template_structure.md'
     - 'Commit 規範': 'zh/git_convention.md'
     - '研究可重現性': 'zh/reproducibility.md'
     - '專案生命週期': 'zh/lifecycle.md'
