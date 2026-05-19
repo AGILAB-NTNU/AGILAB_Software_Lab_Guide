@@ -2,6 +2,9 @@
 
 歡迎來到 AGILAB！本頁說明你加入新專案後的一次性初始化流程。
 
+!!! info "第一次接觸 Git 或 GitHub？"
+    本頁會用到 Fork、Clone、upstream 等概念。不熟悉的話請先看 → [Git 與 GitHub 入門](../appendix/git_github_intro.md)
+
 ---
 
 ## 專案是怎麼來的？

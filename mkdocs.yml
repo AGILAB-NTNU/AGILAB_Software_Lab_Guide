@@ -59,6 +59,7 @@ nav:
       - '研究可重現性': 'zh/research/reproducibility.md'
       - '專案生命週期': 'zh/research/lifecycle.md'
     - '附錄':
+      - 'Git 與 GitHub 入門': 'zh/appendix/git_github_intro.md'
       - 'Google Python Style Guide': 'zh/appendix/google_style_guide.md'
       - 'Type Hinting 入門': 'zh/appendix/type_hinting.md'
       - 'Conda 與 environment.yml': 'zh/appendix/conda_env_guide.md'

@@ -1,0 +1,99 @@
+# Git 與 GitHub 入門
+
+本頁給從未使用過 Git 或 GitHub 的學生看。如果你已經熟悉這兩個工具，可以直接跳過。
+
+---
+
+## Git 是什麼？
+
+Git 是一套**版本控制工具**，安裝在你自己的電腦上。
+
+它解決的問題是：當你寫程式時，怎麼安全地記錄每一次修改、怎麼在出錯時回到上一個狀態、怎麼讓多個人同時修改同一份程式碼而不互相覆蓋。
+
+你可以把 Git 想成「帶有時光機功能的資料夾」：
+
+- 每次執行 `git commit`，Git 就幫你拍一張快照
+- 任何時候都可以回到某一張快照
+- 多人的快照可以合併（merge）在一起
+
+Git 的所有操作都在你自己的電腦上進行，**不需要網路**。
+
+---
+
+## GitHub 是什麼？
+
+GitHub 是一個**雲端平台**，讓你把 Git 的版本記錄上傳到網路上。
+
+它解決的問題是：Git 本身只在你自己的電腦上，別人看不到。GitHub 讓你的程式碼可以：
+
+- 備份到雲端
+- 讓隊友看到並下載
+- 讓多人的修改集中在同一個地方合併
+
+| | Git | GitHub |
+|---|---|---|
+| 是什麼 | 版本控制工具 | 雲端程式碼平台 |
+| 安裝在哪 | 你的電腦 | 網路上（不需安裝） |
+| 需要網路嗎 | 不需要（commit 在本地） | 需要（push/pull/PR） |
+| 主要指令 | `commit`、`merge` | `push`、`pull`、Pull Request |
+
+簡單說：**Git 管版本，GitHub 管協作**。
+
+---
+
+## Fork、Clone、upstream 是什麼關係？
+
+這三個詞在加入實驗室專案時會立刻遇到：
+
+**Fork**：在 GitHub 上複製別人的 repo 到自己的帳號下。
+你 fork 實驗室的 repo 後，你的帳號下就有一份完全屬於你的複本，可以自由修改，不影響實驗室的原版。
+
+**Clone**：把 GitHub 上的 repo 下載到你的電腦。
+Clone 的是你自己的 fork，這樣你才能在電腦上編輯。
+
+**upstream**：你告訴 Git「實驗室的 repo 是這個專案的『上游來源』」。
+因為你 clone 的是自己的 fork，Git 預設只知道你的 fork（`origin`）。設定 `upstream` 後，你才能把實驗室的最新進度同步回來。
+
+```
+實驗室 repo（upstream）
+       ↓  fork
+你的 fork（origin）
+       ↓  clone
+你的電腦（local）
+```
+
+---
+
+## 安裝 Git
+
+=== "macOS"
+    ```bash
+    brew install git
+    ```
+
+=== "Linux（Ubuntu/Debian）"
+    ```bash
+    sudo apt install git
+    ```
+
+=== "Windows"
+    下載並安裝 [Git for Windows](https://git-scm.com/download/win)。
+
+安裝後設定你的名字和 email（只需做一次）：
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+```
+
+---
+
+---
+
+## 延伸學習
+
+→ [Git 與 GitHub 詳細教學簡報](../../assets/git_github_tutorial_zh.pdf)
+
+---
+
+準備好後，回到 [快速啟動](../getting_started/contributing.md) 繼續初始化流程。
