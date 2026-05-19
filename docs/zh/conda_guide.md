@@ -51,3 +51,7 @@ dependencies:
 
 > [!TIP]
 > 始終保持環境簡潔。如果您只是測試一個套件，請先建立一個臨時環境，確認需要後再加入專案的 `environment.yml`。
+
+---
+
+**下一步 →** [快速啟動與貢獻指南](contributing.md)
