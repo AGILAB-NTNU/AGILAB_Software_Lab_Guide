@@ -54,3 +54,7 @@ Type: English Description
 
 !!! tip
     良好的 Commit 紀錄是可重複研究的基石。當你需要回溯某次實驗結果時，清楚的紀錄會節省你大量的時間。
+
+---
+
+**下一步 →** [研究可重現性指南](reproducibility.md)
