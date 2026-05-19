@@ -49,6 +49,11 @@ nav:
     - '快速啟動': 'zh/contributing.md'
     - '模板結構說明': 'zh/template_structure.md'
     - 'Commit 規範': 'zh/git_convention.md'
+    - '開發指南':
+      - '日常 Git 操作': 'zh/daily_git.md'
+      - '撰寫與執行測試': 'zh/testing.md'
+      - 'Logging 與除錯': 'zh/logging_debugging.md'
+      - '實驗管理': 'zh/experiment_management.md'
     - '研究可重現性': 'zh/reproducibility.md'
     - '專案生命週期': 'zh/lifecycle.md'
     - '附錄':

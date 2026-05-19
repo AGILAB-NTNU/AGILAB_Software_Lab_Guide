@@ -57,4 +57,4 @@ Type: English Description
 
 ---
 
-**下一步 →** [研究可重現性指南](reproducibility.md)
+**下一步 →** [日常 Git 操作](daily_git.md)
