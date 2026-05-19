@@ -45,25 +45,27 @@ nav:
     - 'Commit Convention': 'en/git_convention.md'
   - '繁體中文手冊':
     - '首頁': 'zh/index.md'
-    - '環境管理': 'zh/conda_guide.md'
-    - '快速啟動': 'zh/contributing.md'
-    - '模板結構說明': 'zh/template_structure.md'
-    - 'Commit 規範': 'zh/git_convention.md'
+    - '專案啟動':
+      - '環境管理': 'zh/getting_started/conda_guide.md'
+      - '快速啟動': 'zh/getting_started/contributing.md'
+      - '模板結構說明': 'zh/getting_started/template_structure.md'
+      - 'Commit 規範': 'zh/getting_started/git_convention.md'
     - '開發指南':
-      - '日常 Git 操作': 'zh/daily_git.md'
-      - '撰寫與執行測試': 'zh/testing.md'
-      - 'Logging 與除錯': 'zh/logging_debugging.md'
-      - '實驗管理': 'zh/experiment_management.md'
-    - '研究可重現性': 'zh/reproducibility.md'
-    - '專案生命週期': 'zh/lifecycle.md'
+      - '日常 Git 操作': 'zh/development/daily_git.md'
+      - '撰寫與執行測試': 'zh/development/testing.md'
+      - 'Logging 與除錯': 'zh/development/logging_debugging.md'
+      - '實驗管理': 'zh/development/experiment_management.md'
+    - '研究規範':
+      - '研究可重現性': 'zh/research/reproducibility.md'
+      - '專案生命週期': 'zh/research/lifecycle.md'
     - '附錄':
-      - 'Google Python Style Guide': 'zh/google_style_guide.md'
-      - 'Type Hinting 入門': 'zh/type_hinting.md'
-      - '開發模式安裝': 'zh/editable_install.md'
-      - 'Google Style Docstrings': 'zh/docstrings.md'
-      - '進階測試技巧': 'zh/testing_advanced.md'
-      - '進階 Logging 與除錯': 'zh/logging_advanced.md'
-      - 'tmux 無 sudo 安裝': 'zh/tmux_guide.md'
+      - 'Google Python Style Guide': 'zh/appendix/google_style_guide.md'
+      - 'Type Hinting 入門': 'zh/appendix/type_hinting.md'
+      - '開發模式安裝': 'zh/appendix/editable_install.md'
+      - 'Google Style Docstrings': 'zh/appendix/docstrings.md'
+      - '進階測試技巧': 'zh/appendix/testing_advanced.md'
+      - '進階 Logging 與除錯': 'zh/appendix/logging_advanced.md'
+      - 'tmux 無 sudo 安裝': 'zh/appendix/tmux_guide.md'
 
 markdown_extensions:
   - admonition

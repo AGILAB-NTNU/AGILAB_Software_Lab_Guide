@@ -166,8 +166,8 @@ tmux ls
 ```
 
 !!! tip "還沒安裝 tmux？"
-    伺服器通常沒有 sudo 權限，請參考 → [tmux 無 sudo 安裝教學](tmux_guide.md)
+    伺服器通常沒有 sudo 權限，請參考 → [tmux 無 sudo 安裝教學](../appendix/tmux_guide.md)
 
 ---
 
-**下一步 →** [研究可重現性](reproducibility.md)
+**下一步 →** [研究可重現性](../research/reproducibility.md)

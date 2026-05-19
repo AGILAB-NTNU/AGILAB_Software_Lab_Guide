@@ -73,4 +73,4 @@ def load_checkpoint(
 
 ---
 
-**返回** [快速啟動](contributing.md) | **附錄首頁** [回到首頁](index.md)
+**返回** [快速啟動](../getting_started/contributing.md) | **附錄首頁** [回到首頁](../index.md)

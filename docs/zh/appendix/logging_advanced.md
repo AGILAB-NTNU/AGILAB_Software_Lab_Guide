@@ -1,6 +1,6 @@
 # 進階 Logging 與除錯
 
-本頁是 [Logging 與除錯](../logging_debugging.md) 的進階補充，適合想要更完整控制 log 輸出的學生。
+本頁是 [Logging 與除錯](../development/logging_debugging.md) 的進階補充，適合想要更完整控制 log 輸出的學生。
 
 ---
 

@@ -29,7 +29,7 @@
    # 在終端機測試是否能 import
    python -c "import 您的專案名稱; print('安裝成功！')"
    ```
-   > 不清楚 Editable mode 是什麼？→ [開發模式安裝說明](editable_install.md)
+   > 不清楚 Editable mode 是什麼？→ [開發模式安裝說明](../appendix/editable_install.md)
 
 !!! tip "想知道每個資料夾是做什麼的？"
     請參考 [專案模板結構說明](template_structure.md)，裡面有每個目錄與設定檔的詳細解說。
@@ -59,10 +59,10 @@
 
 ## 程式碼規範 (Coding Standards)
 
-- **風格**: 嚴格遵守 Google Python Style Guide。→ [重點整理](google_style_guide.md)
-- **型別提示**: 所有函式簽名必須包含 **Type Hinting**。→ [什麼是 Type Hinting？](type_hinting.md)
-- **註解**: 所有公開模組、類別與函式皆須使用 Google Style Docstrings。→ [範例與格式說明](docstrings.md)
-- **可重現性**: 務必使用隨機種子鎖定工具，確保隨機性過程可追蹤。→ [研究可重現性指南](reproducibility.md)
+- **風格**: 嚴格遵守 Google Python Style Guide。→ [重點整理](../appendix/google_style_guide.md)
+- **型別提示**: 所有函式簽名必須包含 **Type Hinting**。→ [什麼是 Type Hinting？](../appendix/type_hinting.md)
+- **註解**: 所有公開模組、類別與函式皆須使用 Google Style Docstrings。→ [範例與格式說明](../appendix/docstrings.md)
+- **可重現性**: 務必使用隨機種子鎖定工具，確保隨機性過程可追蹤。→ [研究可重現性指南](../research/reproducibility.md)
 
 ## 文件維護
 
