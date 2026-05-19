@@ -53,18 +53,27 @@ def seed_everything(seed: int = 42) -> None:
 
 ## 4. 資料集版本化 (Dataset Versioning)
 
-**固定分割 (Fixed Split)**：嚴禁在程式碼中動態進行 `train_test_split`。應預先將資料集分割成固定的資料夾，放在 `data/processed/` 下：
+**固定分割 (Fixed Split)**：嚴禁在程式碼中動態進行 `train_test_split`。應預先將資料集分割成固定的資料夾。不同的前處理版本以獨立資料夾區隔，與 `processed/` 同層存放：
 
 ```
 data/
-├── raw/              ← 原始資料，不可修改
-└── processed/
-    ├── train/        ← 訓練資料（必要）
-    ├── eval/         ← 驗證資料（選用）
-    └── test/         ← 測試資料（必要）
+├── raw/                      ← 原始資料，不可修改
+├── processed/                ← 預設版本
+│   ├── train/
+│   ├── eval/                 （選用）
+│   └── test/
+└── processed_normalized/     ← 其他前處理版本
+    ├── train/
+    └── test/
 ```
 
-分割完成後，資料夾內容不應再更動。所有人使用相同的資料夾，確保結果可以直接比較。
+每個資料夾一旦建立後不應再更動。在設定檔中明確指定使用哪個版本，確保所有人使用相同的資料：
+
+```yaml
+# configs/ppo_humanoid.yaml
+data:
+  processed_dir: "data/processed"
+```
 
 ---
 
