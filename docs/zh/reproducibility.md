@@ -53,8 +53,16 @@ def seed_everything(seed: int = 42) -> None:
 
 ## 4. 資料集版本化 (Dataset Versioning)
 
-*   **固定分割 (Fixed Split)**：嚴禁在程式碼中動態進行 `train_test_split`。應預先產生 `train.txt` 與 `test.txt` 檔案來指定索引。
-*   **檢查碼**：對於關鍵資料集，請保留其 MD5 或 SHA-256 檢查碼。
+**固定分割 (Fixed Split)**：嚴禁在程式碼中動態進行 `train_test_split`。應預先將資料集分割成固定的資料夾：
+
+```
+data/
+├── train/    ← 訓練資料（必要）
+├── eval/     ← 驗證資料（選用）
+└── test/     ← 測試資料（必要）
+```
+
+分割完成後，資料夾內容不應再更動。所有人使用相同的資料夾，確保結果可以直接比較。
 
 ---
 
