@@ -31,8 +31,8 @@ Due to the strong coupling between CUDA and physical hardware, you **must** docu
 *   **Driver Version**: The driver version observed via `nvidia-smi` (e.g., `535.129.03`). This determines the maximum supported CUDA version on the host.
 *   **Compute Capability**: If using custom compiled operators, specify the target compute capability (e.g., `sm_89`).
 
-> [!IMPORTANT]
-> **"Running code" does not guarantee "consistent results."** If significant differences in experimental results are found across different GPUs, check the `Float32` precision and `Tensor Cores` utilization of each card.
+!!! warning "Running code does not guarantee consistent results"
+    If significant differences in experimental results are found across different GPUs, check the `Float32` precision and `Tensor Cores` utilization of each card.
 
 ## 4. Troubleshooting
 

@@ -58,5 +58,5 @@ We strongly recommend using **Weights & Biases (W&B)** or **MLflow** to record e
 *   Code version (Git Hash).
 *   Model weights (Artifacts).
 
-> [!IMPORTANT]
-> **Experimental results without a Git Hash lack scientific credibility.** Always commit your code before starting formal experiments.
+!!! warning "Experimental results without a Git Hash lack scientific credibility"
+    Always commit your code before starting formal experiments.

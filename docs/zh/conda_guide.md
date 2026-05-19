@@ -31,8 +31,8 @@ dependencies:
 *   **驅動版本 (Driver Version)**：執行 `nvidia-smi` 查看到的驅動版本（如 `535.129.03`）。這決定了機器最高能支援的 CUDA 版本。
 *   **指令集與計算能力 (Compute Capability)**：若使用了編譯型的自定義算子，請註明對應的計算能力（如 `sm_89`）。
 
-> [!IMPORTANT]
-> **「程式碼能跑」不代表「結果一致」**。若發現實驗結果在不同顯卡上有顯著差異，請檢查不同顯卡的 `Float32` 運算精度與 `Tensor Cores` 的調用情況。
+!!! warning "「程式碼能跑」不代表「結果一致」"
+    若發現實驗結果在不同顯卡上有顯著差異，請檢查不同顯卡的 `Float32` 運算精度與 `Tensor Cores` 的調用情況。
 
 ## 4. 疑難排解 (Troubleshooting)
 
