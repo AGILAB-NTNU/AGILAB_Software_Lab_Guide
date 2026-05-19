@@ -26,6 +26,7 @@
 
 初次遇到不懂的術語時，可以直接查閱：
 
+- [Google Python Style Guide](google_style_guide.md) — 命名、行長、Import 順序等實用規則整理
 - [Type Hinting 入門](type_hinting.md) — 函式型別標注是什麼、為何重要
 - [開發模式安裝（Editable Install）](editable_install.md) — `pip install -e .` 到底做了什麼
 - [Google Style Docstrings](docstrings.md) — 如何為函式寫出規範的說明文件

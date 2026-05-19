@@ -52,6 +52,7 @@ nav:
     - '研究可重現性': 'zh/reproducibility.md'
     - '專案生命週期': 'zh/lifecycle.md'
     - '附錄':
+      - 'Google Python Style Guide': 'zh/google_style_guide.md'
       - 'Type Hinting 入門': 'zh/type_hinting.md'
       - '開發模式安裝': 'zh/editable_install.md'
       - 'Google Style Docstrings': 'zh/docstrings.md'
