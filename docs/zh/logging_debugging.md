@@ -103,4 +103,7 @@ with torch.no_grad():
 
 ---
 
+!!! info "想學更多？"
+    → [進階 Logging 與除錯](logging_advanced.md)：統一 logger 模組、寫入 log 檔案、breakpoint 互動除錯
+
 **下一步 →** [實驗管理](experiment_management.md)

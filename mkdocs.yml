@@ -61,6 +61,8 @@ nav:
       - 'Type Hinting 入門': 'zh/type_hinting.md'
       - '開發模式安裝': 'zh/editable_install.md'
       - 'Google Style Docstrings': 'zh/docstrings.md'
+      - '進階測試技巧': 'zh/testing_advanced.md'
+      - '進階 Logging 與除錯': 'zh/logging_advanced.md'
 
 markdown_extensions:
   - admonition
