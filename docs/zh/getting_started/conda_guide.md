@@ -84,14 +84,35 @@ conda list
 
 ## 處理 CUDA 版本
 
-為了確保 GPU 加速能正常運作，`environment.yml` 中需要明確指定 `pytorch-cuda` 版本：
+為了確保 GPU 加速能正常運作，`environment.yml` 中需要明確指定 `pytorch-cuda` 版本。
+
+**第一步：確認你的驅動支援哪個 CUDA 版本**
+
+```bash
+nvidia-smi
+```
+
+輸出的右上角會顯示 `CUDA Version: XX.X`，這是你的驅動**最高支援**的版本：
+
+```
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 535.86.10    Driver Version: 535.86.10    CUDA Version: 12.2    |
+```
+
+**第二步：對照選擇 `pytorch-cuda` 版本**
+
+選擇**不超過** `CUDA Version` 的最接近版本：
+
+| nvidia-smi 顯示 | 建議填入 environment.yml |
+|---|---|
+| 12.2 或以上 | `pytorch-cuda=12.1` |
+| 11.8 | `pytorch-cuda=11.8` |
+| 11.6 或以下 | 請諮詢老師，驅動可能需要更新 |
 
 ```yaml
 dependencies:
-  - pytorch-cuda=12.1  # 依你的機器驅動版本決定
+  - pytorch-cuda=12.1  # 依上表填入
 ```
-
-執行 `nvidia-smi` 可以看到你的驅動支援的最高 CUDA 版本。
 
 !!! warning "「程式碼能跑」不代表「結果一致」"
     若發現實驗結果在不同顯卡上有顯著差異，請檢查不同顯卡的 Float32 運算精度與 Tensor Cores 的調用情況，並在 `README.md` 中註明實驗使用的 GPU 型號與驅動版本。
@@ -105,6 +126,36 @@ dependencies:
 ```bash
 conda install mamba -n base -c conda-forge
 mamba env create -f environment.yml   # 用 mamba 取代 conda，速度快很多
+```
+
+### 建立環境時出現 `PackagesNotFoundError`
+
+通常是 channels 順序問題或套件名稱錯誤。確認 `environment.yml` 的 channels 區塊包含 `pytorch` 和 `nvidia`：
+
+```yaml
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+```
+
+### 在沒有 GPU 的機器上建環境
+
+把 `pytorch-cuda=12.1` 那行移除，改成：
+
+```yaml
+dependencies:
+  - pytorch=2.2.1
+  - cpuonly         # 改用 CPU 版 PyTorch
+```
+
+### 伺服器無法連到 pytorch channel
+
+部分伺服器對外網有限制，試著改用鏡像源：
+
+```bash
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
 ```
 
 ### 物理模擬器（如 Isaac Gym / MuJoCo）

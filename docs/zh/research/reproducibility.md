@@ -1,8 +1,8 @@
-# 研究可重現性指南 (Research Reproducibility Guide)
+# 研究可重現性
 
-在研究中，「可重現性」是科學嚴謹性的基石。為了確保您的實驗結果在不同機器、不同時間都能被精確重現，請務必遵守以下規範。
+在研究中，「可重現性」是科學嚴謹性的基石。為了確保你的實驗結果在不同機器、不同時間都能被精確重現，請務必遵守以下規範。
 
-## 1. 隨機種子鎖定 (Seed Everything)
+## 1. 隨機種子鎖定
 
 隨機性是導致實驗結果產生波動的主要原因。我們要求在所有進入點（如 `train.py`, `eval.py`）的開頭使用統一的種子鎖定工具。
 
@@ -27,16 +27,16 @@ def seed_everything(seed: int = 42) -> None:
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)  # For multi-GPU setups
+    torch.cuda.manual_seed_all(seed)
 
-    # Force deterministic algorithms; raises error if unavailable
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
 
-    print(f"Random seed set to: {seed}")
+    import logging
+    logging.getLogger(__name__).info("Random seed set to: %d", seed)
 ```
 
-## 2. 硬體與演算法的決定性 (Determinism)
+## 2. 硬體與演算法的決定性
 
 即使鎖定了種子，某些深度學習運算（如 `conv` 或 `atomicAdd`）在 CUDA 上預設可能是非決定性的。
 
@@ -51,9 +51,9 @@ def seed_everything(seed: int = 42) -> None:
 *   **Python 打包**：專案的核心依賴必須記錄在 `pyproject.toml` 的 `dependencies` 區塊。
 *   **硬體紀錄**：在論文或實驗日誌中，請標註使用的 GPU 型號與 CUDA 版本。
 
-## 4. 資料集版本化 (Dataset Versioning)
+## 4. 資料集版本化
 
-**固定分割 (Fixed Split)**：嚴禁在程式碼中動態進行 `train_test_split`。應預先將資料集分割成固定的資料夾。不同的前處理版本以獨立資料夾區隔，與 `processed/` 同層存放：
+**固定分割**：嚴禁在程式碼中動態進行 `train_test_split`。應預先將資料集分割成固定的資料夾。不同的前處理版本以獨立資料夾區隔，與 `processed/` 同層存放：
 
 ```
 data/

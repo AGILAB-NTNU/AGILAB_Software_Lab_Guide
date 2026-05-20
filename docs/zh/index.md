@@ -2,7 +2,7 @@
 
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue.svg)](https://agilab-ntnu.github.io/AGILAB_Software_Lab_Guide/)
 
-歡迎加入 AGILAB！本手冊是你在實驗室開發研究專案的完整指南。**建議依照以下順序閱讀**，每章約 5–10 分鐘。
+歡迎加入 AGILAB！本手冊是你在實驗室開發研究專案的完整指南。
 
 ---
 
@@ -11,26 +11,26 @@
 !!! tip "第一次進實驗室？從這裡開始"
     依照下方步驟順序讀完，你就能獨立建立並管理一個符合實驗室規範的研究專案。
 
-**專案啟動**
+**第一週必讀（專案啟動前完成）**
 
 | 步驟 | 章節 | 你會學到什麼 | 所需時間 |
 |:---:|---|---|:---:|
-| 1 | [快速啟動](getting_started/contributing.md) | Clone 老師建立的專案、了解實驗室開發規範 | 15 分鐘 |
+| 1 | [快速啟動](getting_started/contributing.md) | Clone 老師建立的專案、了解 Fork 工作流 | 15 分鐘 |
 | 2 | [環境管理](getting_started/conda_guide.md) | 如何用 Conda 建立可重現的開發環境 | 10 分鐘 |
 | 3 | [模板結構說明](getting_started/template_structure.md) | 每個資料夾與設定檔的用途 | 10 分鐘 |
+| 4 | [Commit 規範](getting_started/git_convention.md) | 如何寫出讓隊友看懂的 Git commit 訊息 | 5 分鐘 |
 
-**日常開發**
+**日常開發（第一週後熟悉）**
 
 | 步驟 | 章節 | 你會學到什麼 | 所需時間 |
 |:---:|---|---|:---:|
-| 4 | [程式碼規範](development/coding_standards.md) | 風格規範、型別提示、Docstrings | 10 分鐘 |
-| 5 | [日常 Git 操作](development/daily_git.md) | Fork 工作流、每日 commit 與 PR 流程 | 15 分鐘 |
-| 6 | [Commit 規範](getting_started/git_convention.md) | 如何寫出讓隊友看懂的 Git commit 訊息 | 5 分鐘 |
+| 5 | [程式碼規範](development/coding_standards.md) | 風格規範、型別提示、Docstrings | 10 分鐘 |
+| 6 | [日常 Git 操作](development/daily_git.md) | Fork 工作流、每日 commit 與 PR 流程 | 15 分鐘 |
 | 7 | [Logging 與除錯](development/logging_debugging.md) | 用 logging 取代 print、讀懂錯誤訊息 | 10 分鐘 |
 | 8 | [撰寫與執行測試](development/testing.md) | 用 pytest 保護你的程式邏輯 | 15 分鐘 |
 | 9 | [實驗管理](development/experiment_management.md) | 讓每次實驗結果都可追溯、可重現 | 10 分鐘 |
 
-**研究規範**
+**研究規範（開始跑實驗前閱讀）**
 
 | 步驟 | 章節 | 你會學到什麼 | 所需時間 |
 |:---:|---|---|:---:|

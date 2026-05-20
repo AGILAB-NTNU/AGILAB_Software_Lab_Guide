@@ -144,7 +144,31 @@ def log_experiment_info(config: dict) -> None:
 
 ---
 
-## 5. 伺服器執行時的注意事項
+## 5. 實驗量大時：考慮自動追蹤工具
+
+手動維護 Markdown 表格在實驗量少時夠用，但當你一天要跑 10+ 次實驗時，容易漏記。以下工具可以自動記錄每次訓練的超參數、指標與程式碼版本：
+
+| 工具 | 適合情況 | 入門難度 |
+|---|---|:---:|
+| [Weights & Biases (W&B)](https://wandb.ai) | 需要視覺化儀表板、遠端監控訓練曲線 | ★★☆ |
+| [MLflow](https://mlflow.org) | 偏好本地部署、不想依賴外部服務 | ★★☆ |
+
+W&B 的最小接入範例（只需三行）：
+
+```python
+import wandb
+
+wandb.init(project="humanoid_rl", config=cfg)
+# 在訓練迴圈中
+wandb.log({"epoch": epoch, "reward": reward, "loss": loss})
+```
+
+!!! note
+    實驗量不大時，手動 Markdown 表格完全夠用。只在你覺得「每次都要手動填表很麻煩」的時候才引入這類工具。
+
+---
+
+## 6. 伺服器執行時的注意事項
 
 在伺服器上執行長時間訓練時，建議使用 **tmux** 管理 session，讓訓練在登出後繼續執行。
 

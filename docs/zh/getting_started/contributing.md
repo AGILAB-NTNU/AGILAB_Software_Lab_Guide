@@ -7,9 +7,18 @@
 
 ---
 
-## 專案是怎麼來的？
+## 三個地方、兩條連線
 
-每個研究專案的 Repository 由**指導老師**統一從 [SoftwareTemplate](https://github.com/AGILAB-NTNU/SoftwareTemplate) 建立在實驗室的 GitHub 組織下（`AGILAB-NTNU`）。學生不需要自己建立 repo，**加入後的第一步是 Fork**。
+初次接觸 Fork 工作流時，最容易搞混的是「我現在的程式碼在哪裡」。先看這張圖：
+
+![Fork 工作流程圖](../../assets/images/fork_workflow.svg)
+
+- **upstream**（藍色）：實驗室的官方 repo，所有人的 PR 都合進這裡
+- **origin**（綠色）：你自己的 fork，你平時 push 到這裡
+- **本機**（橘色）：你實際寫程式的地方
+
+同步方向：`upstream → origin → 本機`（拉取更新）
+提交方向：`本機 → origin → PR → upstream`（送出更動）
 
 ---
 
@@ -33,9 +42,17 @@ cd project
 git remote add upstream https://github.com/AGILAB-NTNU/project.git
 ```
 
-你 clone 的是自己的 fork，`origin` 指向你自己的 repo。
-`upstream` 是實驗室的 repo，是所有人共同的進度來源。
-當隊友的 PR 被合入實驗室 `dev` 後，你需要從 `upstream` 把這些更新同步回來：
+確認兩個 remote 都設定好了：
+
+```bash
+git remote -v
+# origin   https://github.com/YOUR_NAME/project.git (fetch)
+# origin   https://github.com/YOUR_NAME/project.git (push)
+# upstream https://github.com/AGILAB-NTNU/project.git (fetch)
+# upstream https://github.com/AGILAB-NTNU/project.git (push)
+```
+
+當隊友的 PR 被合入實驗室 `dev` 後，這樣把更新同步回來：
 
 ```bash
 git fetch upstream
@@ -44,11 +61,21 @@ git merge upstream/dev
 
 ### 步驟 4：重命名核心資料夾
 
+把模板的佔位名稱換成你的實際專案名稱（例如 `my_robot_rl`）：
+
 ```bash
-mv src/project_name src/my_robot_rl  # 換成實際專案名稱
+mv src/project_name src/my_robot_rl
 ```
 
-並更新 `pyproject.toml`：
+重命名後需要同步更新**所有**引用到舊名稱的地方，否則 `import` 會失敗：
+
+!!! warning "重命名 Checklist — 四個地方都要改"
+    - [ ] `pyproject.toml` 的 `name = "project_name"` → `name = "my_robot_rl"`
+    - [ ] `tests/` 內所有 `from project_name` 或 `import project_name` → 換新名稱
+    - [ ] `scripts/` 內所有腳本裡的 `import project_name` → 換新名稱
+    - [ ] `src/my_robot_rl/__init__.py` 確認無誤（通常不需改，但確認一下）
+
+`pyproject.toml` 的修改範例：
 
 ```toml
 [project]
@@ -61,6 +88,12 @@ name = "my_robot_rl"   # ← 改成實際專案名稱
 conda env create -f environment.yml
 conda activate agilab_env
 python -c "import my_robot_rl; print('安裝成功！')"
+```
+
+如果出現 `ModuleNotFoundError`，通常是步驟 4 有某個地方漏改，或 `pip install -e .` 還沒跑。先執行：
+
+```bash
+pip install -e .
 ```
 
 !!! tip "想知道每個資料夾是做什麼的？"
