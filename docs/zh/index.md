@@ -15,7 +15,7 @@
 
 | 步驟 | 章節 | 你會學到什麼 | 所需時間 |
 |:---:|---|---|:---:|
-| 1 | [快速啟動](getting_started/contributing.md) | Clone 老師建立的專案、了解 Fork 工作流 | 15 分鐘 |
+| 1 | [快速啟動](getting_started/contributing.md) | Clone 實驗室 repo、建立個人開發分支 | 15 分鐘 |
 | 2 | [環境管理](getting_started/conda_guide.md) | 如何用 Conda 建立可重現的開發環境 | 10 分鐘 |
 | 3 | [模板結構說明](getting_started/template_structure.md) | 每個資料夾與設定檔的用途 | 10 分鐘 |
 | 4 | [Commit 規範](getting_started/git_convention.md) | 如何寫出讓隊友看懂的 Git commit 訊息 | 5 分鐘 |
@@ -25,7 +25,7 @@
 | 步驟 | 章節 | 你會學到什麼 | 所需時間 |
 |:---:|---|---|:---:|
 | 5 | [程式碼規範](development/coding_standards.md) | 風格規範、型別提示、Docstrings | 10 分鐘 |
-| 6 | [日常 Git 操作](development/daily_git.md) | Fork 工作流、每日 commit 與 PR 流程 | 15 分鐘 |
+| 6 | [日常 Git 操作](development/daily_git.md) | 分支工作流、每日 commit 與 PR 流程 | 15 分鐘 |
 | 7 | [Logging 與除錯](development/logging_debugging.md) | 用 logging 取代 print、讀懂錯誤訊息 | 10 分鐘 |
 | 8 | [撰寫與執行測試](development/testing.md) | 用 pytest 保護你的程式邏輯 | 15 分鐘 |
 | 9 | [實驗管理](development/experiment_management.md) | 讓每次實驗結果都可追溯、可重現 | 10 分鐘 |

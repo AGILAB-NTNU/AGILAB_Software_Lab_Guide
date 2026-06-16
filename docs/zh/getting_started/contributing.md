@@ -3,60 +3,55 @@
 歡迎來到 AGILAB！本頁說明你加入新專案後的一次性初始化流程。
 
 !!! info "第一次接觸 Git 或 GitHub？"
-    本頁會用到 Fork、Clone、upstream 等概念。不熟悉的話請先看 → [Git 與 GitHub 入門](../appendix/git_github_intro.md)
+    本頁會用到 Clone、分支（Branch）等概念。不熟悉的話請先看 → [Git 與 GitHub 入門](../appendix/git_github_intro.md)
+
+!!! warning "實驗室不開放 Fork"
+    所有人共用同一個實驗室 repo，靠**分支（Branch）**區隔每個人的工作，不開放個人 Fork。請依下方流程申請協作者權限後直接 Clone 實驗室 repo。
 
 ---
 
-## 三個地方、兩條連線
+## 兩個地方、一條主線
 
-初次接觸 Fork 工作流時，最容易搞混的是「我現在的程式碼在哪裡」。先看這張圖：
+初次接觸分支工作流時，最容易搞混的是「我現在的程式碼在哪裡」。先看這張圖：
 
-![Fork 工作流程圖](../../assets/images/fork_workflow.svg)
+![分支工作流程圖](../../assets/images/branch_workflow.svg)
 
-- **upstream**（藍色）：實驗室的官方 repo，所有人的 PR 都合進這裡
-- **origin**（綠色）：你自己的 fork，你平時 push 到這裡
+- **實驗室 repo**（藍／綠色）：唯一的程式碼來源，`main`、`dev` 與每個人的 `feature/[name]` 分支都在這裡
 - **本機**（橘色）：你實際寫程式的地方
 
-同步方向：`upstream → origin → 本機`（拉取更新）
-提交方向：`本機 → origin → PR → upstream`（送出更動）
+同步方向：`dev → feature/[name] → 本機`（拉取更新）
+提交方向：`本機 → feature/[name] → PR → dev`（送出更動）
 
 ---
 
 ## 初始化流程（只做一次）
 
-### 步驟 1：Fork 實驗室 repo
+### 步驟 1：取得協作者權限
 
-前往實驗室 repo 頁面，點右上角的 **Fork** 按鈕。
-Fork 完成後，你的帳號下會出現一個同名的 repo（`YOUR_NAME/project`），這是你的個人工作空間。
+請老師或學長姐將你加入實驗室 repo 的 GitHub Collaborator 名單。實驗室不使用 Fork，所有人都直接在同一個 repo 裡用分支工作。
 
-### 步驟 2：Clone 你的 fork
+### 步驟 2：Clone 實驗室 repo
 
 ```bash
-git clone https://github.com/YOUR_NAME/project.git
+git clone https://github.com/AGILAB-NTNU/project.git
 cd project
 ```
 
-### 步驟 3：將實驗室 repo 設為 upstream
+### 步驟 3：建立你的個人分支
 
 ```bash
-git remote add upstream https://github.com/AGILAB-NTNU/project.git
+git checkout dev
+git pull
+git checkout -b feature/your-name-topic
 ```
 
-確認兩個 remote 都設定好了：
+當隊友的 PR 被合入 `dev` 後，這樣把更新同步回你的分支：
 
 ```bash
-git remote -v
-# origin   https://github.com/YOUR_NAME/project.git (fetch)
-# origin   https://github.com/YOUR_NAME/project.git (push)
-# upstream https://github.com/AGILAB-NTNU/project.git (fetch)
-# upstream https://github.com/AGILAB-NTNU/project.git (push)
-```
-
-當隊友的 PR 被合入實驗室 `dev` 後，這樣把更新同步回來：
-
-```bash
-git fetch upstream
-git merge upstream/dev
+git checkout dev
+git pull
+git checkout feature/your-name-topic
+git merge dev
 ```
 
 ### 步驟 4：重命名核心資料夾

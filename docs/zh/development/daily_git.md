@@ -1,6 +1,6 @@
 # 日常 Git 操作
 
-> 還沒做過初始化？請先完成 [快速啟動](../getting_started/contributing.md) 的 Fork、Clone 與 upstream 設定。
+> 還沒做過初始化？請先完成 [快速啟動](../getting_started/contributing.md) 的 Clone 與個人分支建立。
 
 本頁說明初始化完成後的日常開發流程。
 
@@ -9,12 +9,10 @@
 ## 分支架構
 
 ```
-AGILAB-NTNU/project（實驗室 repo）
-  ├── main   ← 專案正式結束後才合併（由老師決定）
-  └── dev    ← 整合分支，接受所有人的 PR
-
-YOUR_NAME/project（你的 fork）
-  └── dev    ← 你的開發分支，完成後發 PR 到上方的 dev
+AGILAB-NTNU/project（實驗室唯一的 repo，不開放 Fork）
+  ├── main                    ← 專案正式結束後才合併（由老師決定）
+  ├── dev                     ← 整合分支，接受所有人的 PR
+  └── feature/your-name-topic ← 你的個人開發分支，完成後發 PR 到 dev
 ```
 
 ---
@@ -22,18 +20,20 @@ YOUR_NAME/project（你的 fork）
 ## 每日工作流程
 
 ```
-同步上游 → 寫程式 → Commit → Push → （功能完成時）發 PR
+同步 dev → 寫程式 → Commit → Push → （功能完成時）發 PR
 ```
 
 ---
 
-## 1. 每天開始前：同步上游
+## 1. 每天開始前：同步 dev 進度
 
-把實驗室最新進度合入自己的 fork，避免累積衝突：
+把實驗室最新進度合入自己的分支，避免累積衝突：
 
 ```bash
-git fetch upstream
-git merge upstream/dev
+git checkout dev
+git pull
+git checkout feature/your-name-topic
+git merge dev
 ```
 
 ---
@@ -77,15 +77,18 @@ git commit -m "feat: Add attention mechanism to policy network"
 ## 4. Push
 
 ```bash
-git push
+git push origin feature/your-name-topic
 ```
+
+!!! tip "第一次 push 這個分支"
+    分支第一次推上去時，記得加 `-u` 設定追蹤：`git push -u origin feature/your-name-topic`，之後就能直接 `git push`。
 
 ---
 
 ## 5. 功能完成時：發 Pull Request
 
-1. 前往你的 GitHub fork 頁面，點選 **Compare & pull request**
-2. 確認方向：`YOUR_NAME/project:dev` → `AGILAB-NTNU/project:dev`
+1. 前往實驗室 GitHub repo 頁面，點選 **Compare & pull request**
+2. 確認方向：`feature/your-name-topic` → `dev`
 3. 填寫 PR 標題（同 Commit 規範格式）與簡短說明
 4. 送出後通知主要負責人 review
 
@@ -97,15 +100,15 @@ git push
 ## 常用指令速查
 
 ```bash
-git status                 # 查看目前狀態
-git log --oneline -10      # 查看最近 10 個 commit
-git diff                   # 查看未 staged 的修改
-git diff --staged          # 查看已 staged 的修改
-git fetch upstream         # 抓取實驗室最新進度
-git merge upstream/dev     # 將實驗室 dev 合入目前分支
-git push                   # 上傳本地 commit 到自己的 fork
-git stash                  # 暫存目前修改（臨時切換任務時用）
-git stash pop              # 取回暫存的修改
+git status                                # 查看目前狀態
+git log --oneline -10                     # 查看最近 10 個 commit
+git diff                                  # 查看未 staged 的修改
+git diff --staged                         # 查看已 staged 的修改
+git checkout dev && git pull              # 抓取實驗室最新進度
+git merge dev                             # 將 dev 合入目前分支
+git push origin feature/your-name-topic   # 上傳本地 commit 到實驗室 repo
+git stash                                 # 暫存目前修改（臨時切換任務時用）
+git stash pop                             # 取回暫存的修改
 ```
 
 ---

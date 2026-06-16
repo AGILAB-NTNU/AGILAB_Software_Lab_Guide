@@ -41,23 +41,23 @@ GitHub 是一個**雲端平台**，讓你把 Git 的版本記錄上傳到網路�
 
 ---
 
-## Fork、Clone、upstream 是什麼關係？
+## Clone、Branch、Pull Request 是什麼關係？
 
-這三個詞在加入實驗室專案時會立刻遇到：
-
-**Fork**：在 GitHub 上複製別人的 repo 到自己的帳號下。
-你 fork 實驗室的 repo 後，你的帳號下就有一份完全屬於你的複本，可以自由修改，不影響實驗室的原版。
+這三個詞在加入實驗室專案時會立刻遇到。實驗室**不使用 Fork**，所有人共用同一個 repo，靠分支（Branch）區隔每個人的工作：
 
 **Clone**：把 GitHub 上的 repo 下載到你的電腦。
-Clone 的是你自己的 fork，這樣你才能在電腦上編輯。
+你 clone 的就是實驗室唯一的 repo 本身（需要先被加入 Collaborator 名單才能 push）。
 
-**upstream**：你告訴 Git「實驗室的 repo 是這個專案的『上游來源』」。
-因為你 clone 的是自己的 fork，Git 預設只知道你的 fork（`origin`）。設定 `upstream` 後，你才能把實驗室的最新進度同步回來。
+**Branch**：在同一個 repo 裡開一條獨立的時間線。
+你在自己的 `feature/[name]` 分支上修改，不會影響 `dev` 或 `main`，也不會跟其他隊友的分支互相干擾。
+
+**Pull Request（PR）**：請隊友 review 你的分支，並把它合併進 `dev`。
+PR 通過後，你的修改才會正式成為整合分支的一部分。
 
 ```
-實驗室 repo（upstream）
-       ↓  fork
-你的 fork（origin）
+實驗室 repo（唯一來源）
+  ├── dev 分支
+  └── 你的 feature 分支
        ↓  clone
 你的電腦（local）
 ```
