@@ -21,6 +21,12 @@ commit 前跑一次這兩個指令就夠了。
 
 → [Google Python Style Guide 重點整理](../appendix/google_style_guide.md)
 
+也可一開始在terminal輸入以下指令，之後提交會自動修正
+```python
+ pre-commit install 
+
+```
+
 ---
 
 ## 2. Type Hinting
