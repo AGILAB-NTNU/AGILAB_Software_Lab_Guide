@@ -43,7 +43,7 @@ def test_invalid_seed_raises():
 
 ## Fixture：共用測試前置準備
 
-當多個測試需要相同的初始化（例如都需要建立同一個資料集實例），可以用 `@pytest.fixture` 避免重複編寫初始化代碼：
+當多個測試需要相同的初始化（例如都需要建立同一個資料集實體），可以用 `@pytest.fixture` 避免重複編寫初始化程式碼：
 
 ```python
 import pytest
@@ -104,7 +104,7 @@ from your_project.data.dataset import SimpleDataset
 
 @pytest.fixture
 def dataset():
-    """建立一個供測試使用的 Dataset 實例。"""
+    """建立一個供測試使用的 Dataset 實體。"""
     features = np.random.randn(100, 8).astype(np.float32)
     labels = np.random.randint(0, 2, size=(100, 1)).astype(np.float32)
     return SimpleDataset(features, labels)
@@ -165,7 +165,7 @@ from unittest.mock import MagicMock
 from your_project.utils.robot import RobotController
 
 def test_robot_movement_flow():
-    # 建立控制器實例
+    # 建立控制器實體
     controller = RobotController()
     
     # 用 MagicMock 替換真實的 move_to 方法

@@ -41,7 +41,7 @@ def seed_everything(seed: int = 42) -> None:
 即使鎖定了種子，某些深度學習運算（如 `conv` 或 `atomicAdd`）在 CUDA 上預設可能是非決定性的。
 
 *   **CUDA 決定性**：設定 `torch.use_deterministic_algorithms(True)`。這會強制 PyTorch 在找不到決定性演算法時報錯，提醒您注意潛在的不一致性。
-*   **多執行緒影響**：在 `DataLoader` 中設定 `num_workers > 1` 可能會引入非決定性的數據讀取順序。若需嚴格重現，建議在除錯階段將 `num_workers` 設為 `0`。
+*   **多執行緒影響**：在 `DataLoader` 中設定 `num_workers > 1` 可能會引入非決定性的資料讀取順序。若需嚴格重現，建議在除錯階段將 `num_workers` 設為 `0`。
 
 ## 3. 環境版本控制
 

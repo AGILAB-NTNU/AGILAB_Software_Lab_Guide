@@ -115,13 +115,13 @@ dependencies:
 ```
 
 !!! warning "「程式碼能跑」不代表「結果一致」"
-    若發現實驗結果在不同顯卡上有顯著差異，請檢查不同顯卡的 Float32 運算精度與 Tensor Cores 的調用情況，並在 `README.md` 中註明實驗使用的 GPU 型號與驅動版本。
+    若發現實驗結果在不同顯卡上有顯著差異，請檢查不同顯卡的 Float32 運算精度與 Tensor Cores 的使用情況，並在 `README.md` 中註明實驗使用的 GPU 型號與驅動版本。
 
 ---
 
 ## 疑難排解
 
-### 依賴解析過慢
+### 相依性解析過慢
 
 ```bash
 conda install mamba -n base -c conda-forge
@@ -163,7 +163,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 對於無法透過 conda 直接安裝的模擬器：
 
 1. 在專案根目錄建立 `third_party/` 資料夾
-2. 將模擬器源碼放入其中
+2. 將模擬器原始碼放入其中
 3. 在 `environment.yml` 的 `pip` 區塊加入 `-e third_party/xxx`
 
 ---

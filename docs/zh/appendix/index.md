@@ -11,8 +11,8 @@
 ```mermaid
 graph TD
     A[手冊主頁] --> B(L1: 基礎工具與協作)
-    B --> C(L2: 環境建置與依賴管理)
-    C --> D(L3: 代碼風格與型別安全)
+    B --> C(L2: 環境建置與相依性管理)
+    C --> D(L3: 程式碼風格與型別安全)
     D --> E(L4: 進階工程與除錯技巧)
 
     style B fill:#f9f,stroke:#333,stroke-width:2px
@@ -33,12 +33,12 @@ graph TD
 
 ---
 
-## 📦 第二層：環境建置與依賴管理 (L2)
+## 📦 第二層：環境建置與相依性管理 (L2)
 管理研究專案的第三方軟體包、物理模擬器與 GPU 容器化，是保證實驗「可重現性」的基礎：
 
 * **[Conda 與 environment.yml 說明](conda_env_guide.md)**
     * **核心內容**：為什麼要用 Conda？`environment.yml` 的結構、日常維護（新增套件）與從零建置。
-    * **新版補充**：Conda 依賴解析過慢原因（Channel 優先級）、環境垃圾清理與瘦身導出。
+    * **新版補充**：Conda 相依性解析過慢原因（Channel 優先級）、環境垃圾清理與瘦身導出。
 * **[開發模式安裝 (Editable Install)](editable_install.md)**
     * **核心內容**：介紹 `pip install -e .` 的軟連結（symlink）機制，以及為什麼研究專案非用它不可。
     * **新版補充**：修改 `pyproject.toml` 中的 entry points 時重新安裝的提醒。
@@ -52,7 +52,7 @@ graph TD
 
 ---
 
-## 🎨 第三層：代碼風格與型別安全 (L3)
+## 🎨 第三層：程式碼風格與型別安全 (L3)
 寫出乾淨、有型別提示且易於 review 的程式碼，是團隊協作的最高準則：
 
 * **[Google Python Style Guide 要點](google_style_guide.md)**
@@ -71,7 +71,7 @@ graph TD
 
 * **[進階測試技巧](testing_advanced.md)**
     * **核心內容**：使用 pytest 來撰寫測試。
-    * **新版補充**：如何使用 pytest fixture 共享測試實例、以及使用 `monkeypatch` 或 mock 模擬外部硬體/網路 API。
+    * **新版補充**：如何使用 pytest fixture 共享測試實體、以及使用 `monkeypatch` 或 mock 模擬外部硬體/網路 API。
 * **[進階 Logging 與除錯](logging_advanced.md)**
     * **核心內容**：如何用 Logging 系統全面取代 Print，並掌握 Traceback 與除錯流程。
     * **新版補充**：配置 console（終端機）與 file（檔案）雙輸出 Logger 的最佳實作設定。
