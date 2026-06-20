@@ -111,4 +111,5 @@ pip install https://github.com/AGILAB-NTNU/your_project/releases/download/v1.0.0
 
 ---
 
-**附錄首頁** [回到首頁](../index.md)
+**返回** [環境管理](../getting_started/conda_guide.md) | **返回附錄總覽** [附錄總覽](index.md) | **回到手冊主頁** [回到首頁](../index.md)
+

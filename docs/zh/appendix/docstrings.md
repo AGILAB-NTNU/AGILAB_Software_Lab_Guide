@@ -80,6 +80,23 @@ def _normalize(x: np.ndarray) -> np.ndarray:
     return (x - x.mean()) / (x.std() + 1e-8)
 ```
 
+## IDE 自動生成 Google Docstring 設定
+
+為了避免手動輸入繁雜的排版格式，強烈建議在你的開發環境中配置自動生成套件：
+
+### 1. VS Code 配置 (`autoDocstring`)
+1. 在 VS Code 擴充功能市集搜尋並安裝 **autoDocstring - Python Docstring Generator**。
+2. 開啟 VS Code 設定（`Ctrl+,`），搜尋 `autoDocstring.docstringFormat`。
+3. 將其值修改為 `google`（預設可能為 `default`）。
+4. 在任何 Python 函式定義的下一行輸入三個雙引號 `"""` 並按 `Enter`，即可自動套用包含 `Args`、`Returns`、`Raises` 欄位的 Google Style 模板。
+
+### 2. PyCharm 配置
+1. 開啟 PyCharm 的設定視窗（`Ctrl+Alt+S`）。
+2. 導航至 **Tools** -> **Python Integrated Tools**。
+3. 在 **Docstrings** 欄位下，將 **Docstring format** 選擇為 **Google**。
+4. 此後在函式下方輸入 `"""` 並按 `Enter`，PyCharm 就會自動帶出對應的格式骨架。
+
 ---
 
-**返回** [快速啟動](../getting_started/contributing.md) | **附錄首頁** [回到首頁](../index.md)
+**返回** [程式碼規範](../development/coding_standards.md) | **返回附錄總覽** [附錄總覽](index.md) | **回到手冊主頁** [回到首頁](../index.md)
+

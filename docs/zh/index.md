@@ -40,6 +40,19 @@
 
 ---
 
+## 📚 附錄知識庫
+
+如果你在依照新生路線閱讀時，發現某些基礎工具不夠熟悉，或者在專案開發中遇到特定的進階部署與除錯需求，可以隨時查閱 **[附錄總覽](appendix/index.md)**。
+
+我們將附錄內容整理為四個層級，方便你依照自身背景補齊知識：
+
+1. **[L1: 基礎工具與協作](appendix/index.md#l1)**：Git 基礎與衝突處理解決。
+2. **[L2: 環境建置與依賴管理](appendix/index.md#l2)**：Conda 進階設定、Editable 安裝、`pyproject.toml` 套件發布、Docker 部署與 tmux 管理。
+3. **[L3: 代碼風格與型別安全](appendix/index.md#l3)**：Google Python 規範、實用 Type Hinting（聯合型別與別名）、Google Style Docstrings 自動生成。
+4. **[L4: 進階工程與除錯技巧](appendix/index.md#l4)**：pytest 測試與 Mock、console/file 雙輸出 Logging 配置。
+
+---
+
 ## 基礎建設
 
 - **[SoftwareTemplate](https://github.com/AGILAB-NTNU/SoftwareTemplate)**: 所有研究專案的起點，內含標準目錄結構與自動化 Lint。

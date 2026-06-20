@@ -88,6 +88,54 @@ git config --global user.email "your@email.com"
 
 ---
 
+## Git 衝突（Conflict）處理與常用指令
+
+當你與隊友修改了同一個檔案的同一行，並嘗試 `git merge` 或 `git pull` 時，Git 會無法自動判斷該保留誰的修改，進而產生**衝突（Conflict）**。
+
+### 1. 如何識別衝突？
+當衝突發生時，終端機通常會顯示：
+```
+CONFLICT (content): Merge conflict in src/your_project/models/policy.py
+Automatic merge failed; fix conflicts and then commit the result.
+```
+打開衝突的檔案，你會看到 Git 自動插入的衝突標記：
+```python
+<<<<<<< HEAD
+# 這是你在目前分支修改的內容
+def compute_reward(distance: float) -> float:
+    return -distance * 0.1
+=======
+# 這是你要合併的分支（例如 dev）上的最新內容
+def compute_reward(distance: float) -> float:
+    return -distance * 0.5
+>>>>>>> dev
+```
+
+### 2. 解決衝突三步驟：
+1. **人工決定保留哪部分**：手動刪除 `<<<<<<< HEAD`、`=======`、`>>>>>>> dev` 等標記線，並編輯好你想要的程式碼。
+2. **Stage 檔案**：編輯完成後，使用 `git add` 告訴 Git 該衝突已解決。
+   ```bash
+   git add src/your_project/models/policy.py
+   ```
+3. **完成 Commit**：
+   ```bash
+   git commit -m "fix: Resolve merge conflict in policy reward scale"
+   ```
+
+### 3. 進階時光機與救急指令
+* **放棄目前的 Merge/Pull（回到合併前狀態）**：
+  ```bash
+  git merge --abort
+  ```
+* **復原某個已被修改的檔案（放棄本地未 stage 的修改）**：
+  ```bash
+  git checkout -- path/to/file.py
+  ```
+* **強制回到某個歷史 commit**（會清除該 commit 之後的所有本地修改，慎用！）：
+  ```bash
+  git reset --hard <commit-hash>
+  ```
+
 ---
 
 ## 延伸學習
@@ -96,4 +144,5 @@ git config --global user.email "your@email.com"
 
 ---
 
-準備好後，回到 [快速啟動](../getting_started/contributing.md) 繼續初始化流程。
+**返回** [快速啟動](../getting_started/contributing.md) | **返回附錄總覽** [附錄總覽](index.md) | **回到手冊主頁** [回到首頁](../index.md)
+

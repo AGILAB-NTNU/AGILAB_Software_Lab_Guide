@@ -59,6 +59,7 @@ nav:
       - '研究可重現性': 'zh/research/reproducibility.md'
       - '專案生命週期': 'zh/research/lifecycle.md'
     - '附錄':
+      - '附錄總覽': 'zh/appendix/index.md'
       - '入門':
         - 'Git 與 GitHub 入門': 'zh/appendix/git_github_intro.md'
       - '環境設定':

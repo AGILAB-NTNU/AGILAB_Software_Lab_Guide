@@ -175,4 +175,5 @@ ruff format .
 
 ---
 
-**返回** [快速啟動](../getting_started/contributing.md) | **附錄首頁** [回到首頁](../index.md)
+**返回** [程式碼規範](../development/coding_standards.md) | **返回附錄總覽** [附錄總覽](index.md) | **回到手冊主頁** [回到首頁](../index.md)
+

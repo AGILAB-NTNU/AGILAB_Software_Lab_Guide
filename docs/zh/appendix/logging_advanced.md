@@ -133,3 +133,65 @@ print(f"weight shape: {weight.shape}")
 ```
 
 確認後再修正維度順序或 reshape 操作。
+
+## 常見踩坑：避免重複列印日誌（Duplicate Logs）
+
+當你在多個模組中使用 `logger = get_logger(__name__)`，如果沒有正確處理 handler，或者多次呼叫了基礎設定，可能會發現終端機裡每一行 log 被印了兩次或多次。
+
+### 1. 關閉 propagate 屬性
+在 Python 的 logging 系統中，子 logger（例如 `your_project.models.policy`）預設會將日誌訊息向上傳遞（propagate）給 root logger。如果 root logger 也被配置了 handler，就會造成重複輸出。
+
+解決方案是在自訂 Logger 中顯式關閉傳遞，或是只配置 root logger：
+```python
+def get_logger(name: str, log_file: str | None = None) -> logging.Logger:
+    logger = logging.getLogger(name)
+    
+    # 關閉傳遞，防止子模組的日誌傳遞到 parent/root logger 重複印出
+    logger.propagate = False
+    ...
+```
+
+### 2. 日誌分級最佳實作（Console INFO + File DEBUG）
+在伺服器上執行長跑實驗時，終端機通常只需顯示關鍵的訓練進度（`INFO`），而日誌檔案則需要記錄極其詳細的除錯資訊（`DEBUG`），以便在出錯時追查。
+
+以下是進階雙通道日誌配置函式的完整範例：
+```python
+import os
+import sys
+import logging
+
+def setup_logger(name: str, log_dir: str = "logs") -> logging.Logger:
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.DEBUG)  # 設定最寬鬆的總門檻
+    logger.propagate = False
+    
+    # 避免重複添加 handler
+    if not logger.handlers:
+        # 1. 建立日誌資料夾
+        os.makedirs(log_dir, exist_ok=True)
+        
+        # 格式定義
+        formatter = logging.Formatter(
+            fmt="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+        )
+        
+        # 2. Console Handler (僅輸出 INFO 以上)
+        console_handler = logging.StreamHandler(sys.stdout)
+        console_handler.setLevel(logging.INFO)
+        console_handler.setFormatter(formatter)
+        logger.addHandler(console_handler)
+        
+        # 3. File Handler (輸出 DEBUG 以上，保留所有細節)
+        file_path = os.path.join(log_dir, "experiment.log")
+        file_handler = logging.FileHandler(file_path, encoding="utf-8")
+        file_handler.setLevel(logging.DEBUG)
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
+        
+    return logger
+```
+
+---
+
+**返回** [Logging 與除錯](../development/logging_debugging.md) | **返回附錄總覽** [附錄總覽](index.md) | **回到手冊主頁** [回到首頁](../index.md)

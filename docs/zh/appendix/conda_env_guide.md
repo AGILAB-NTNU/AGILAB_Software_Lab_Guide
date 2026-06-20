@@ -78,8 +78,31 @@ python -c "import torch; print(torch.__version__)"
 | 何時修改 | 每次新增套件 | 初始化時改一次名稱即可 |
 | 新手需要管嗎 | ✅ 是 | 僅改名稱 |
 
-→ 詳見 [pyproject.toml 說明](pyproject_guide.md)
+## Conda 進階調優與避坑指南
+
+### 1. 為什麼我的 Conda 依賴解析（Solving environment）特別慢？
+Conda 在安裝套件時，會交叉比對所有已安裝套件與 channels 上的版本相容性。以下兩個原因會造成解析極度緩慢：
+- **Channels 順序與優先度衝突**：若同時引入了順序不對的 `defaults` 與 `conda-forge`，Conda 會跨來源尋找最佳匹配。請確保你的 `environment.yml` 中的 channels 優先順序如範例所示（優先使用 `pytorch` / `nvidia` 與 `conda-forge`，最後才是 `defaults`）。
+- **解析引擎效率限制**：若 Conda 的依賴圖過於複雜，建議使用 `mamba`（使用 C++ 撰寫的極速解析器）來替代 Conda 的解析核心：
+  ```bash
+  conda install mamba -n base -c conda-forge
+  mamba env update -f environment.yml --prune
+  ```
+
+### 2. 清理環境快取，釋放磁碟空間
+Conda 會在本地快取下載過的套件壓縮檔（`.tar.bz2`/`.conda`）與解壓後的暫存檔案，長期累積可能佔用數十 GB 空間。使用以下指令可以安全清理：
+```bash
+# 清理所有未使用的快取包與索引目錄
+conda clean --all
+```
+
+### 3. 導出乾淨的 environment.yml（跨平台相容）
+當你完成實驗，想把目前的環境分享給別人時，若直接執行 `conda env export`，會包含許多本地系統與硬體特有的雜亂依賴。正確的「瘦身與跨平台」導出指令為：
+```bash
+# 只導出你主動安裝的套件（從歷史記錄中），不包含底層相依套件與平台特定路徑
+conda env export --from-history > environment_clean.yml
+```
 
 ---
 
-**附錄首頁** [回到首頁](../index.md)
+**返回** [環境管理](../getting_started/conda_guide.md) | **返回附錄總覽** [附錄總覽](index.md) | **回到手冊主頁** [回到首頁](../index.md)

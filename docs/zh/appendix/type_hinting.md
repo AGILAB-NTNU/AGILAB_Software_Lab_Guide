@@ -71,6 +71,49 @@ def load_checkpoint(
     ...
 ```
 
+## 常見的型別標記技巧
+
+### 1. Union (聯合類型)
+當一個參數可以接受多種合法的型別時，可以使用 `Union`（Python 3.10+ 可以直接用 `|` 符號標記，更為簡潔）：
+
+```python
+# 舊版 Python (<3.10)
+from typing import Union
+
+def setup_device(device: Union[str, int]) -> None:
+    ...
+
+# 新版 Python (3.10+) 推薦寫法
+def setup_device(device: str | int) -> None:
+    # device 可以是字串 "cuda" 或整數 0
+    ...
+```
+
+### 2. Any (任意類型)
+當你不確定、或不想限制某個變數的型別時，可以使用 `Any`。雖然應儘量避免濫用以維持型別安全，但在處理極度動態的第三方資料時非常實用：
+
+```python
+from typing import Any
+
+# 允許傳入任何類型的資料
+def log_metadata(key: str, value: Any) -> None:
+    print(f"{key}: {value}")
+```
+
+### 3. Type Alias (型別別名)
+當型別標記變得很長、很複雜時，你可以自訂一個簡短的別名，這能大幅提高程式碼的易讀性：
+
+```python
+import numpy as np
+
+# 定義簡短的別名
+ObsBatch = np.ndarray
+ActionBatch = np.ndarray
+
+def step_env(action: ActionBatch) -> ObsBatch:
+    ...
+```
+
 ---
 
-**返回** [快速啟動](../getting_started/contributing.md) | **附錄首頁** [回到首頁](../index.md)
+**返回** [程式碼規範](../development/coding_standards.md) | **返回附錄總覽** [附錄總覽](index.md) | **回到手冊主頁** [回到首頁](../index.md)
