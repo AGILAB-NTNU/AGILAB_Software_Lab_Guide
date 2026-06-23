@@ -24,13 +24,13 @@ Type: English Description
 | **fix** | 修復 Bug、修正參數錯誤或 Tensor Shape 不匹配 | `fix: Resolve gradient explosion in training` |
 | **docs** | 更新文件、README 或程式碼註解 | `docs: Update installation steps for CUDA 12` |
 | **refactor** | 重構或整理程式碼（不影響功能） | `refactor: Modularize reward functions` |
+| **chore** | 改設定檔、更新環境套件 | `chore: update setting or package` |
 
 ### 其他選用類型 (Optional Types)
 若以上四種不敷使用，您也可以視變更性質使用更多類型，例如：
 
 *   **exp**: 專用於實驗超參數的細微調整。
 *   **perf**: 優化效能（如減少記憶體占用或加速運算）。
-*   **chore**: 瑣碎事務（如更新套件版本、CI/CD 配置）。
 *   **test**: 新增或修改測試程式碼。
 
 ---
