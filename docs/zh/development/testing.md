@@ -90,6 +90,28 @@ pytest tests/
 
 ---
 
+## CI 做什麼、不做什麼
+
+GitHub Actions 的 CI 只負責**靜態分析**，不會自動跑 pytest：
+
+| 工作 | 負責方 |
+|---|---|
+| 語法錯誤、未使用 import、命名規範 | CI 自動檢查並修正 |
+| 程式碼格式（縮排、引號、換行） | CI 自動修正後 commit 回 branch |
+| 函式邏輯正確性、Tensor shape | **開發者本地** `pytest tests/` |
+| 模型訓練結果 | **開發者手動**實驗驗證 |
+
+這樣設計的原因：AI 研究的訓練程式需要 GPU 且耗時，不適合在每次 push 時由 CI 執行。pytest 在本地跑才是適合的場合。
+
+!!! tip "哪些適合寫成 pytest？"
+    - 純 CPU 的工具函式（獎勵計算、資料前處理、metric 計算）
+    - 用小 tensor（例如 `(2, 3)`）驗證模型 forward pass 的 shape
+    - Config 載入與驗證
+
+    不適合放進 pytest 的：完整訓練迴圈、需要真實資料集的測試、GPU-only 程式碼。
+
+---
+
 !!! info "想學更多？"
     → [進階測試技巧](../appendix/testing_advanced.md)：更多 pytest 指令、fixture、pytest.raises、完整 ReplayBuffer 測試範例
 

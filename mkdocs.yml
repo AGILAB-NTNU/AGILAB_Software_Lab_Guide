@@ -37,6 +37,7 @@ extra_css:
 nav:
   - 'English Manual':
     - 'Home': 'index.md'
+    - 'Documentation Status': 'en/status.md'
     - 'Getting Started': 'en/contributing.md'
     - 'Reproducibility': 'en/reproducibility.md'
     - 'Environment': 'en/conda_guide.md'
